@@ -12,6 +12,10 @@ function Header() {
         <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <h2>Pedidos</h2>
+        <h2>Cozinha</h2>
+        <h2>Retirada</h2>
+
       </div>
     </>
   )
