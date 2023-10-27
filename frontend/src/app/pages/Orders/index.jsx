@@ -1,5 +1,7 @@
 // import { useState } from 'react'
-import reactLogo from '../../../assets/react.svg'
+import Header from '../../components/Header'
+import Input from '../../components/Input'
+
 // import viteLogo from '/vite.svg'
 // import 't Orders.css'
 
@@ -8,11 +10,8 @@ function Orders() {
 
   return (
     <>
-      <div>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+      <Header />
+      <Input />
     </>
   )
 }
