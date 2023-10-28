@@ -5,9 +5,13 @@ import Context from "../../context/Context";
 function OrderSummary() {
   const { summaryList, setSummaryList } = useContext(Context);
 
-  const removeOnSummaryList = (id) => {
+  const removeOneSummaryList = (id) => {
     const filteredWithOutProduct = summaryList.filter((product) => product.id != id);
     setSummaryList(filteredWithOutProduct);
+  };
+
+  const removeAllSummaryList = () => {
+    setSummaryList([]);
   };
 
   return (
@@ -18,10 +22,6 @@ function OrderSummary() {
           <h1>Resumo dos pedidos</h1>
           {summaryList.map((product) => (
             <div key={product.id}>
-              <img src={product.img}
-                className="img"
-                alt={product.name}
-              />
               <p>{product.name}</p>
               {product.ingredientes.map((ingrediente, idx)=>(
                 <div key={idx}>
@@ -30,17 +30,30 @@ function OrderSummary() {
               ))}
               <p>{`R$ ${product.price.toFixed(2)}`}</p>
               <button
-                onClick={()=> removeOnSummaryList(product.id)}
+                onClick={()=> removeOneSummaryList(product.id)}
               >
                 Remover
               </button>
             </div>
           ))}
+          <h2>Total de pedido:</h2>
           <h2>{`R$ ${summaryList.reduce((acc, product) => {
               acc += product.price;
               return acc;
             }, 0).toFixed(2)}`}
           </h2>
+          <button
+            type="button"
+            onClick={removeAllSummaryList}
+          >
+            Cancelar Pedido
+          </button>
+          <button
+            type="button"
+            onClick={removeAllSummaryList}
+          >
+            Pagamento
+          </button>
         </div>
       )}
     </>

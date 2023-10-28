@@ -10,7 +10,7 @@ function CustomerDetails({statusOrder, router}) {
   useEffect(()=> {
     const filteredByStatus = customerMock.filter((customer) => (customer.status === statusOrder))
     setFilterCustomers(filteredByStatus);
-  }, [])
+  }, [statusOrder])
 
  
 
