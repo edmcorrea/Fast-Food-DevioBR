@@ -14,8 +14,6 @@ function OrderSummary() {
     setSummaryList([]);
   };
 
-  console.log(summaryList);
-
   return (
     <>
       {!summaryList.length ? (<p>Nenhum produto adicionado</p>)
@@ -25,6 +23,8 @@ function OrderSummary() {
           {summaryList.map((product) => (
             <div key={product.id}>
               <p>{product.name}</p>
+              <p>{`${product.quantity}x`}</p>
+              <p>{product.observation}</p>
               <p>{`R$ ${product.price.toFixed(2)}`}</p>
               <button
                 onClick={()=> removeOneSummaryList(product.id)}
@@ -35,7 +35,7 @@ function OrderSummary() {
           ))}
           <h2>Total de pedido:</h2>
           <h2>{`R$ ${summaryList.reduce((acc, product) => {
-              acc += product.price;
+              acc += product.price *product.quantity;
               return acc;
             }, 0).toFixed(2)}`}
           </h2>

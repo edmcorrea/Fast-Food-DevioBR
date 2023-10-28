@@ -1,12 +1,11 @@
 // import 't Orders.css'
 import { useContext, useEffect, useState } from "react";
 import { productsMock } from "../../services/products.mock"
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Context from "../../context/Context";
 
 function ProductDetails() {
   const { id } = useParams();
-  const history = useNavigate();
   const { summaryList, setSummaryList } = useContext(Context);
 
   const [filteredProduct, setFilteredProduct] = useState([]);
@@ -27,9 +26,7 @@ function ProductDetails() {
     foundProduct.quantity = quantity;
 
     updatedSummaryList.push(foundProduct);
-
     setSummaryList(updatedSummaryList);
-    history("/");
   }
 
   const handleObservationsChange = (event) => {
@@ -61,7 +58,6 @@ function ProductDetails() {
             ))}
             <p>{`R$ ${filtered.price.toFixed(2)}`}</p>
           </div>
-
         ))}
         <div>
           <button type="button" onClick={decrementQuantity}>
@@ -88,7 +84,7 @@ function ProductDetails() {
             Voltar
           </button>
         </Link>
-        <Link>
+        <Link to="/">
           <button
             type="button"
             onClick={() => addToSummaryList(id)}

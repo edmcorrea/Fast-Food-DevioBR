@@ -3,7 +3,7 @@ import './App.css'
 import Orders from './app/pages/Orders';
 import Kitchen from './app/pages/Kitchen'
 import Status from './app/pages/Status'
-import ProductDetails from './app/components/ProductDetails';
+import ProductDetails from './app/pages/ProductDetails';
 
 function App() {
   // const [count, setCount] = useState(0)
