@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { customerMock } from '../../services/customers.mock';
+
 // import 't Orders.css'
 
 function CompletedOrders() {
@@ -22,3 +23,4 @@ function CompletedOrders() {
 }
 
 export default CompletedOrders
+

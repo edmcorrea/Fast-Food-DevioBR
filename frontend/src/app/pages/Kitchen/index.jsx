@@ -8,8 +8,8 @@ function Kitchen() {
   return (
     <>
       <Header />
-      <PreparingOrders />
-      <CompletedOrders />
+      <PreparingOrders router="kitchen"/>
+      <CompletedOrders router="kitchen"/>
     </>
   )
 }

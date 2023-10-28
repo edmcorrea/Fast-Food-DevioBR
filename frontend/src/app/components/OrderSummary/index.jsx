@@ -36,6 +36,11 @@ function OrderSummary() {
               </button>
             </div>
           ))}
+          <h2>{`R$ ${summaryList.reduce((acc, product) => {
+              acc += product.price;
+              return acc;
+            }, 0).toFixed(2)}`}
+          </h2>
         </div>
       )}
     </>

@@ -5,14 +5,15 @@ Tasks - Usabilidade OBRIGATORIAS
 - Poderá ver uma pequena quantidade de produtos na tela
   - Poderá selecionar os produtos da tela inicial
 
-- Criar input para pesquisar dados
+<!-- - Criar input para pesquisar dados
   - É possível buscar produtos pelo seu NOME
-  - É possível buscar produtos pelo seu CODIGO 
+  - É possível buscar produtos pelo seu CODIGO  -->
 
 - Resumo do pedido
   - É possível ADICIONAR itens no carrinho
   - É possível REMOVER itens no carrinho
   - Encaminhar para ÁREA DE PAGAMENTO
+  - Implementar uma situação para quando o usuário compra mais de um produto 
 
 - Finalizar o pedido
   - Deverá ver o RESUMO DA COMPRA

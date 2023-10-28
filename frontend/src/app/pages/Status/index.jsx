@@ -8,8 +8,8 @@ function Status() {
   return (
     <>
       <Header />
-      <PreparingOrders />
-      <CompletedOrders />
+      <PreparingOrders router="status"/>
+      <CompletedOrders router="status"/>
     </>
   )
 }
