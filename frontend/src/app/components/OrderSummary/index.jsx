@@ -1,6 +1,7 @@
 // import 't Orders.css'
 import { useContext } from "react";
 import Context from "../../context/Context";
+import { Link } from "react-router-dom";
 
 function OrderSummary() {
   const { summaryList, setSummaryList } = useContext(Context);
@@ -23,8 +24,9 @@ function OrderSummary() {
           {summaryList.map((product) => (
             <div key={product.id}>
               <p>{product.name}</p>
-              <p>{`${product.quantity}x`}</p>
+              <p>Observações:</p>
               <p>{product.observation}</p>
+              <p>{`${product.quantity}x`}</p>
               <p>{`R$ ${product.price.toFixed(2)}`}</p>
               <button
                 onClick={()=> removeOneSummaryList(product.id)}
@@ -45,12 +47,14 @@ function OrderSummary() {
           >
             Cancelar Pedido
           </button>
-          <button
-            type="button"
-            onClick={removeAllSummaryList}
-          >
-            Pagamento
-          </button>
+          <Link to="/order/details">
+            <button
+              type="button"
+              onClick={removeAllSummaryList}
+              >
+              Finalizar Pedido
+            </button>
+            </Link>
         </div>
       )}
     </>

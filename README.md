@@ -10,13 +10,14 @@ Tasks - Usabilidade OBRIGATORIAS
   - É possível buscar produtos pelo seu CODIGO  -->
 
 - Resumo do pedido
-  - É possível ADICIONAR itens no carrinho
-  - É possível REMOVER itens no carrinho
+  <!-- - É possível ADICIONAR itens no carrinho -->
+  <!-- - É possível REMOVER itens no carrinho -->
   - Encaminhar para ÁREA DE PAGAMENTO
   - Implementar uma situação para quando o usuário compra mais de um produto 
 
 - Finalizar o pedido
   <!-- - Deverá ver o RESUMO DA COMPRA -->
+  - Refatorar OrderDetails
   - O usuário deve visualizar o valor TOTAL DO PEDIDO
   - o usuário deve visualizar o TROCO DO PEDIDO
   - Deverá ser possível adicionar o NOME DO CLIENTE
