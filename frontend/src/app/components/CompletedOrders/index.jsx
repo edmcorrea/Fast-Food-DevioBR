@@ -1,26 +1,22 @@
-import { useEffect, useState } from 'react';
-import { customerMock } from '../../services/customers.mock';
-
+import { PropTypes } from "prop-types";
+import CustomerDetails from '../CustomerDetails';
 // import 't Orders.css'
 
-function CompletedOrders() {
-  const [filterCustomers, setFilterCustomers] = useState([]);
-
-  useEffect(()=> {
-    const filteredByStatus = customerMock.filter((customer) => (customer.status === "Completed"))
-    setFilterCustomers(filteredByStatus);
-  }, []);
+function CompletedOrders({router}) {
 
   return (
     <>
-      {filterCustomers.map((customer) => (
-        <div key={customer.id}>
-          <p>{customer.customerName}</p>
-        </div>
-      ))}
+      < CustomerDetails
+        router={router}
+        statusOrder = "Completed"
+      />
     </>
   )
 }
 
 export default CompletedOrders
+
+CompletedOrders.propTypes = {
+  router: PropTypes.string,
+};
 

@@ -2,7 +2,7 @@ export const customerMock = [
   {
     id: 200,
     customerName: "Ricardo",
-    productId: [1],
+    productId: [1, 3],
     observation: "",
     status: "Preparing"
   },
