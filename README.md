@@ -16,7 +16,7 @@ Tasks - Usabilidade OBRIGATORIAS
   - Implementar uma situação para quando o usuário compra mais de um produto 
 
 - Finalizar o pedido
-  - Deverá ver o RESUMO DA COMPRA
+  <!-- - Deverá ver o RESUMO DA COMPRA -->
   - O usuário deve visualizar o valor TOTAL DO PEDIDO
   - o usuário deve visualizar o TROCO DO PEDIDO
   - Deverá ser possível adicionar o NOME DO CLIENTE
