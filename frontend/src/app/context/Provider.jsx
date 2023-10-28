@@ -4,16 +4,16 @@ import Context from './Context';
 
 function Provider({ children }) {
   const [query, setQuery] = useState('');
-  const [searchList, setSearchList] = useState([]);
+  const [summaryList, setSummaryList] = useState([]);
 
   const context = useMemo(() => ({
-    setQuery,
     query,
-    setSearchList,
-    searchList,
+    setQuery,
+    summaryList,
+    setSummaryList,
   }), [
     query,
-    searchList,
+    summaryList,
   ]);
 
   return <Context.Provider value={ context }>{children}</Context.Provider>;

@@ -1,18 +1,21 @@
-// import { useState } from 'react'
-import reactLogo from '../../../assets/react.svg'
-// import viteLogo from '/vite.svg'
 // import 't Orders.css'
+import { categoriesMock } from "../../services/categories.mock"
 
 function Categories() {
-  // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+      <h2>Categorias</h2>
+      <p>Navegue por categoria</p>
+      {categoriesMock.map((element) => (
+        <div key={element.name}>
+          <img src={element.img}
+            className="img"
+            alt={element.name}
+          />
+          <p>{element.name}</p>
+        </div>
+      ))}
     </>
   )
 }
