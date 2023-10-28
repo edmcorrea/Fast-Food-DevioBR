@@ -1,18 +1,22 @@
-// import { useState } from 'react'
-import reactLogo from '../../../assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react';
+import { customerMock } from '../../services/customers.mock';
 // import 't Orders.css'
 
 function PreparingOrders() {
-  // const [count, setCount] = useState(0)
+  const [filterCustomers, setFilterCustomers] = useState([]);
+
+  useEffect(()=> {
+    const filteredByStatus = customerMock.filter((customer) => (customer.status === "Preparing"))
+    setFilterCustomers(filteredByStatus);
+  }, [])
 
   return (
     <>
-      <div>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+      {filterCustomers.map((customer) => (
+        <div key={customer.id}>
+          <p>{customer.customerName}</p>
+        </div>
+      ))}
     </>
   )
 }

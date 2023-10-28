@@ -1,5 +1,6 @@
-import reactLogo from '../../../assets/react.svg'
+import CompletedOrders from '../../components/CompletedOrders'
 import Header from '../../components/Header'
+import PreparingOrders from '../../components/PreparingOrders'
 // import 't Orders.css'
 
 function Kitchen() {
@@ -7,11 +8,8 @@ function Kitchen() {
   return (
     <>
       <Header />
-      <div>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+      <PreparingOrders />
+      <CompletedOrders />
     </>
   )
 }
