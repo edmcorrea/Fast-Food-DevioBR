@@ -2,36 +2,35 @@ export const customerMock = [
   {
     id: 200,
     customerName: "Ricardo",
-    productId: [1, 3],
+    productIds: [{id: 1, quantity: 1}, {id: 2, quantity: 1}],
     observation: "",
     status: "Preparing"
   },
   {
     id: 201,
     customerName: "Luiza",
-    productId: [2],
+    productIds: [{id: 2, quantity: 1}],
     observation: "",
     status: "Preparing"
   },
   {
     id: 202,
     customerName: "Fernando",
-    productId: [3],
+    productIds: [{id: 3, quantity: 1}],
     observation: "",
     status: "Preparing"
   },
   {
     id: 203,
     customerName: "Bruna",
-    productId: [1],
+    products: [{id: 1, quantity: 1}],
     observation: "",
     status: "Completed"
   },
   {
     id: 204,
     customerName: "Jussara",
-    productId: [4],
-    observation: "molho separado",
+    productIds: [{id: 4, observation: "molho branco", quantity: 1}],
     status: "Completed"
   },
 ];

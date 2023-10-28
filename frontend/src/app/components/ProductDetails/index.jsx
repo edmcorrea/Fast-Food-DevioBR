@@ -1,32 +1,51 @@
 // import 't Orders.css'
 import { useContext, useEffect, useState } from "react";
 import { productsMock } from "../../services/products.mock"
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Context from "../../context/Context";
 
 function ProductDetails() {
-  const {id} = useParams();
+  const { id } = useParams();
+  const history = useNavigate();
   const { summaryList, setSummaryList } = useContext(Context);
 
   const [filteredProduct, setFilteredProduct] = useState([]);
-  const [observations, setObservations] = useState("");
+  const [observation, setObservation] = useState("");
+  const [quantity, setQuantity] = useState(1); 
   
   useEffect(()=> {
     const filtered = productsMock.filter((product) => product.id == id)
     setFilteredProduct(filtered);
   }, [id]);
 
-    const findAndAddToSummaryList = (id) => {
+    const addToSummaryList = (id) => {
     const updatedSummaryList = [...summaryList];
+    console.log(productsMock);
+    
+    let foundProduct = productsMock.find((product) => product.id == id);
 
-    const foundProduct = productsMock.find((product) => product.id === id);
+    foundProduct.observation = observation;
+    foundProduct.productId = id;
+    foundProduct.quantity = quantity;
+
     updatedSummaryList.push(foundProduct);
 
     setSummaryList(updatedSummaryList);
+    history("/");
   }
 
   const handleObservationsChange = (event) => {
-    setObservations(event.target.value);
+    setObservation(event.target.value);
+  };
+
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
   };
 
   return (
@@ -47,11 +66,20 @@ function ProductDetails() {
 
         ))}
         <div>
+          <button type="button" onClick={decrementQuantity}>
+            -
+          </button>
+          <span>{quantity}</span>
+          <button type="button" onClick={incrementQuantity}>
+            +
+          </button>
+        </div>
+        <div>
           <label>Observações:</label>
           <textarea
             rows="4"
             cols="50"
-            value={observations}
+            value={observation}
             onChange={handleObservationsChange}
           ></textarea>
         </div>
@@ -65,7 +93,7 @@ function ProductDetails() {
         <Link>
           <button
             type="button"
-            onClick={() => findAndAddToSummaryList(id)}
+            onClick={() => addToSummaryList(id)}
             >
             Continuar Adicionando
           </button>

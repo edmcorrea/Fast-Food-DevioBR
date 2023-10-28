@@ -10,9 +10,7 @@ function CustomerDetails({statusOrder, router}) {
   useEffect(()=> {
     const filteredByStatus = customerMock.filter((customer) => (customer.status === statusOrder))
     setFilterCustomers(filteredByStatus);
-  }, [statusOrder])
-
- 
+  }, [statusOrder]); 
 
   return (
     <>
@@ -25,9 +23,9 @@ function CustomerDetails({statusOrder, router}) {
           )}
           <p>{customer.customerName}</p>
           {router === "kitchen" && (
-            <div>{customer.productId
-              .map((id) => ( productsMock
-                .filter((product) => product.id === id)
+            <div>{customer.products
+              .map((order) => ( productsMock
+                .filter((product) => product.id === order.id)
                 .map((prodFiltered, idx) => (
                   <p key={idx}>{prodFiltered.name}</p>
                 ))
