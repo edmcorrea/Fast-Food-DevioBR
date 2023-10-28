@@ -20,12 +20,10 @@ function ProductDetails() {
 
     const addToSummaryList = (id) => {
     const updatedSummaryList = [...summaryList];
-    console.log(productsMock);
     
     let foundProduct = productsMock.find((product) => product.id == id);
 
     foundProduct.observation = observation;
-    foundProduct.productId = id;
     foundProduct.quantity = quantity;
 
     updatedSummaryList.push(foundProduct);

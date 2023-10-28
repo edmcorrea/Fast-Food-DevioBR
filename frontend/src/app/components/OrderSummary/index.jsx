@@ -14,6 +14,8 @@ function OrderSummary() {
     setSummaryList([]);
   };
 
+  console.log(summaryList);
+
   return (
     <>
       {!summaryList.length ? (<p>Nenhum produto adicionado</p>)
@@ -23,11 +25,6 @@ function OrderSummary() {
           {summaryList.map((product) => (
             <div key={product.id}>
               <p>{product.name}</p>
-              {product.ingredientes.map((ingrediente, idx)=>(
-                <div key={idx}>
-                  <p>{ingrediente}</p>
-                </div>
-              ))}
               <p>{`R$ ${product.price.toFixed(2)}`}</p>
               <button
                 onClick={()=> removeOneSummaryList(product.id)}
