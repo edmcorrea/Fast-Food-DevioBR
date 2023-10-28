@@ -1,20 +1,17 @@
-// import { useState } from 'react'
-import reactLogo from '../../../assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { Link } from 'react-router-dom';
 // import 't Orders.css'
 
 function Header() {
-  // const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
         <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src="https://png.pngtree.com/png-vector/20230131/ourmid/pngtree-fast-food-logo-design-use-to-your-business-png-image_6578591.png" className="logo react" alt="React logo" />
         </a>
-        <h2>Pedidos</h2>
-        <h2>Cozinha</h2>
-        <h2>Retirada</h2>
+        <Link to="/">Pedidos</Link>
+        <Link to="/kitchen">Cozinha</Link>
+        <Link to="/status">Retirada</Link>
 
       </div>
     </>
