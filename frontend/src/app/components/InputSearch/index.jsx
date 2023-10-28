@@ -4,8 +4,8 @@ import Context from '../../context/Context';
 // import viteLogo from '/vite.svg'
 // import 't Orders.css'
 
-function Input() {
-  const { query, setQuery, /*setSearchList*/ } = useContext(Context);
+function InputSearch() {
+  const { query, setQuery } = useContext(Context);
 
   const inputOnChange = ({ target }) => {
     const { value } = target;
@@ -17,6 +17,7 @@ function Input() {
     // setSearchList(results.results);
     // setSearchList()
   };
+  
   return (
     <>
       <h2>Seja bem vindo!</h2>
@@ -41,4 +42,4 @@ function Input() {
   )
 }
 
-export default Input
+export default InputSearch
