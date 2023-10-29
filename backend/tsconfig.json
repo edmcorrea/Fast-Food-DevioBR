@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 16",
+
+  "compilerOptions": {
+    "lib": ["es2021", "DOM"],
+    "module": "commonjs",
+    "target": "es2016",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src", "prisma"],
+  "exclude": ["node_modules"]
+}
