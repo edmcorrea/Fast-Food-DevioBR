@@ -50,7 +50,6 @@ function OrderSummary() {
           <Link to="/order/details">
             <button
               type="button"
-              onClick={removeAllSummaryList}
               >
               Finalizar Pedido
             </button>

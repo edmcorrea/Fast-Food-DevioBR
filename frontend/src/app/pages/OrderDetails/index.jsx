@@ -43,9 +43,15 @@ function OrderDetails() {
 
         <div>
           <h2>Selecione a forma de pagamento:</h2>
-          <input type="radio" name="paymentMethod" value="debit"/>Débito
-          <input type="radio" name="paymentMethod" value="credit"/>Crédito
-          <input type="radio" name="paymentMethod" value="money" checked/>Dinheiro
+          <label>
+            <input type="radio" name="paymentMethod" value="debit"/>Débito
+          </label>
+          <label>
+            <input type="radio" name="paymentMethod" value="credit"/>Crédito
+          </label>
+          <label>
+            <input type="radio" name="paymentMethod" value="money"/>Dinheiro
+          </label>
         </div>
 
         <div>
