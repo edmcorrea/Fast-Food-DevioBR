@@ -2,7 +2,6 @@
 import { useContext } from "react";
 import Context from "../../context/Context";
 import { Link } from "react-router-dom";
-import TotalPrice from "../TotalPrice";
 import SummaryListComponent from "../SummaryListComponent";
 
 function OrderSummary() {

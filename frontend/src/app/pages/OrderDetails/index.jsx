@@ -7,7 +7,7 @@ import SummaryListComponent from "../../components/SummaryListComponent";
 import TotalPrice from "../../components/TotalPrice";
 
 function OrderDetails() {
-  const { summaryList, setSummmaryList } = useContext(Context);
+  const { setSummaryList } = useContext(Context);
   const [customerName, setCustomerName] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('money');
 
@@ -21,7 +21,7 @@ function OrderDetails() {
   };
 
   const handleSummaryList = () => {
-    setSummmaryList([]);
+    setSummaryList([]);
   }
 
   const handleSubmit = async () => {
