@@ -1,5 +1,5 @@
 {
-  "name": "test-backend-uol",
+  "name": "test-backend",
   "version": "1.0.0",
   "description": "desenvolvimento de um projeto backend",
   "main": "dist/server.js",
