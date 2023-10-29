@@ -1,0 +1,19 @@
+.header {
+  background-color: #ff6a28;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+
+  &-links {
+    display: flex;
+    gap: 25px;
+    
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
+    }
+  }
+}
