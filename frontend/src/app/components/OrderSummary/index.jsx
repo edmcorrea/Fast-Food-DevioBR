@@ -2,14 +2,13 @@
 import { useContext } from "react";
 import Context from "../../context/Context";
 import { Link } from "react-router-dom";
+import TotalPrice from "../TotalPrice";
+import SummaryListComponent from "../SummaryListComponent";
 
 function OrderSummary() {
   const { summaryList, setSummaryList } = useContext(Context);
 
-  const removeOneSummaryList = (id) => {
-    const filteredWithOutProduct = summaryList.filter((product) => product.id != id);
-    setSummaryList(filteredWithOutProduct);
-  };
+
 
   const removeAllSummaryList = () => {
     setSummaryList([]);
@@ -20,27 +19,9 @@ function OrderSummary() {
       {!summaryList.length ? (<p>Nenhum produto adicionado</p>)
       :(
         <div>
-          <h1>Resumo dos pedidos</h1>
-          {summaryList.map((product) => (
-            <div key={product.id}>
-              <p>{product.name}</p>
-              <p>Observações:</p>
-              <p>{product.observation}</p>
-              <p>{`${product.quantity}x`}</p>
-              <p>{`R$ ${product.price.toFixed(2)}`}</p>
-              <button
-                onClick={()=> removeOneSummaryList(product.id)}
-              >
-                Remover
-              </button>
-            </div>
-          ))}
-          <h2>Total de pedido:</h2>
-          <h2>{`R$ ${summaryList.reduce((acc, product) => {
-              acc += product.price *product.quantity;
-              return acc;
-            }, 0).toFixed(2)}`}
-          </h2>
+          <h1>Resumo do pedido</h1>
+          <SummaryListComponent view="summary" />
+
           <button
             type="button"
             onClick={removeAllSummaryList}
