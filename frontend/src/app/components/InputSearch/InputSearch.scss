@@ -1,0 +1,25 @@
+.inputSearch {
+  margin: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h2 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  &-label {
+    display: flex;
+    justify-content: center;
+
+    &-input {
+      background-color: rgb(241, 241, 241);
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      height: 25px;
+      width: 70%;
+    }
+  }
+}

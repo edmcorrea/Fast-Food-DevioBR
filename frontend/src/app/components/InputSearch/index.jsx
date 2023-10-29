@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Context from '../../context/Context';
 import { productsMock } from "../../services/products.mock";
-// import 't Orders.css'
+import './InputSearch.scss'
 
 function InputSearch() {
   const { query, setQuery, setProductsList } = useContext(Context);
@@ -21,20 +21,20 @@ function InputSearch() {
   };
  
   return (
-    <>
+    <div className='inputSearch'>
       <h2>Seja bem vindo!</h2>
-      <label htmlFor="home" className="header-search-label">
+      <label htmlFor="home" className="inputSearch-label">
         <input
-          className="header-search-label-input"
+          className="inputSearch-label-input"
           id="home"
           type="text"
           name="home"
-          placeholder="Pesquise pelo nome do produto ou código"
+          placeholder="Pesquise pelo nome ou código do produto"
           value={ query }
           onChange={ inputOnChange }
         />
       </label>
-    </>
+    </div>
   )
 }
 
