@@ -1,22 +1,26 @@
-// import 't Orders.css'
+import './Categories.scss'
 import { categoriesMock } from "../../services/categories.mock"
 
 function Categories() {
 
   return (
-    <>
-      <h2>Categorias</h2>
-      <p>Navegue por categoria</p>
+    <div className='categories'>
+      <section className='categories-texts'>
+        <h3>Categorias</h3>
+        <p>Navegue por categoria</p>
+      </section>
+      <section className='categories-btns'>
       {categoriesMock.map((element) => (
-        <button key={element.name}>
+        <button key={element.name} className='categories-btns-btn'>
           <img src={element.img}
             className="img"
             alt={element.name}
-          />
+            />
           <p>{element.name}</p>
         </button>
       ))}
-    </>
+      </section>
+    </div>
   )
 }
 

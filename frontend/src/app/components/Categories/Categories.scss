@@ -1,0 +1,33 @@
+.categories {
+  margin: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    h3 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+  }
+
+  &-btns {
+    display: flex;
+    justify-content: space-evenly;
+
+    &-btn {
+      background-color: white;
+      box-shadow: 2px 2px 10px 1px rgb(240, 240, 240);
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+      font-weight: 600;
+      width: 200px;
+      height: 100px;
+    }
+  }
+}
