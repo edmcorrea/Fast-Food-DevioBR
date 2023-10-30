@@ -25,6 +25,8 @@ class CustomerModel {
       // console.log(error);
     }
   }
+
+  
 }
 
 export default CustomerModel;

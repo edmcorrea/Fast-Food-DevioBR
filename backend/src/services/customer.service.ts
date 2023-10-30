@@ -2,7 +2,7 @@ import { ICustomers, IResponseCustomers } from '../interfaces';
 import CustomerModel from '../models/customer.model';
 import HttpException from '../utils/httpException';
 
-class AssetsService {
+class CustomerService {
   private customerModel = new CustomerModel();
 
   getAllCustomers = async () => this.customerModel.getAllCustomers();
@@ -12,4 +12,4 @@ class AssetsService {
   }
 }
 
-export default AssetsService;
+export default CustomerService;
