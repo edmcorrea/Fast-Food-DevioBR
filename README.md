@@ -20,7 +20,9 @@ Tasks - Usabilidade OBRIGATORIAS
   <!-- - O usuário deve visualizar o valor TOTAL DO PEDIDO -->
   <!-- - o usuário deve visualizar o TROCO DO PEDIDO -->
   <!-- - Deverá ser possível adicionar o NOME DO CLIENTE -->
-  - Utilizar impressão termica
+  <!-- - Utilizar impressão termica -->
+  - Descomentar a Função do thermal Printer no arquivo: backend>app>controllers>customer.controller
+  - copiar o migration do prisma para o prisma do backend
   - Deve liberar a tela para o proximo pedido
   - persistir no storage
 
