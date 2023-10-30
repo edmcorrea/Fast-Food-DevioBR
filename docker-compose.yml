@@ -13,20 +13,29 @@ services:
     ports:
       - 3001:3001
     depends_on:
-      - db
+      - database
+    environment:
+      MYSQL_HOST: database
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: db
     networks:
       - app-network
   
-  db:
-    platform: linux/x86_64
-    image: postgres:13
-    hostname: db
-    container_name: database
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+  database:
+    image: mysql:latest
+    container_name: db
+    restart: always 
     ports:
-      - 5432:5432
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+    volumes:
+      - ./.docker/data:/var/lib/mysql
+    networks:
+      - app-network
 
 networks:
   app-network:
