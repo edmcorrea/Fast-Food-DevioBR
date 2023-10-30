@@ -10,6 +10,10 @@ class CustomerService {
   public async createCustomer(customer: ICustomers) {
     return this.customerModel.createCustomer(customer);
   }
+
+  public async updateCustomerStatus(customer: ICustomers, id: number) {
+    return this.customerModel.updateCustomerStatus(customer, id);
+  }
 }
 
 export default CustomerService;

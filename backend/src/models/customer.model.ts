@@ -26,6 +26,23 @@ class CustomerModel {
     }
   }
 
+  public async updateCustomerStatus(customer: ICustomers, id: number) {
+    try {
+      return this.context.prisma.customer.update({
+        where: {
+          codCustomer: id,
+        },
+        data: customer
+      });
+            
+    } catch (error: any) {
+      if (error && error.meta.target[0]) {
+        throw new HttpException(409, `${error.meta.target[0]} already registered`);
+      }
+      console.log(error); // remover
+    }
+  }
+
   
 }
 
