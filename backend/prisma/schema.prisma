@@ -6,13 +6,14 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Customer {
   codCustomer Int @id @default(autoincrement())
   customerName String
-  productIds Json?
+  products Json?
   status String
 }
+
