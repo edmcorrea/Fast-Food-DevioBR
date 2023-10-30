@@ -1,15 +1,17 @@
 import CompletedOrders from '../../components/CompletedOrders'
 import Header from '../../components/Header'
 import PreparingOrders from '../../components/PreparingOrders'
-// import 't Orders.css'
+import './Status.scss'
 
 function Status() {
 
   return (
     <>
-      <Header />
-      <PreparingOrders router="status"/>
-      <CompletedOrders router="status"/>
+      <Header className='status'/>
+      <div className='status-orders'>
+        <PreparingOrders router="status"/>
+        <CompletedOrders router="status"/>
+      </div>
     </>
   )
 }
