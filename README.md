@@ -2,7 +2,7 @@
 
 Tasks - Usabilidade OBRIGATORIAS
 
-- Poderá ver uma pequena quantidade de produtos na tela
+<!-- - Poderá ver uma pequena quantidade de produtos na tela -->
   - Poderá selecionar os produtos da tela inicial
 
 <!-- - Criar input para pesquisar dados
