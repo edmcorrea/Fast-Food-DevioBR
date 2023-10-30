@@ -16,7 +16,6 @@ function CustomerDetails({statusOrder, router}) {
     }
 
     const filteredByStatus = await customers.filter((customer) => (customer.status === statusOrder));
-
     setFilterCustomers(filteredByStatus);
   };
 
@@ -27,8 +26,8 @@ function CustomerDetails({statusOrder, router}) {
   return (
     <>
       {statusOrder === "Preparing" ? <h2>Preparando</h2> : <h2>Pronto</h2>}
-      {filterCustomers.map((customer) => (
-        <div key={customer.id}>
+      {filterCustomers.map((customer,idxx) => (
+        <div key={idxx}>
           {router === "kitchen" && (
             <div>
               <p>{customer.id}</p>

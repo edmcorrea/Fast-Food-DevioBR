@@ -18,7 +18,7 @@ function SummaryListComponent({view}) {
         <div key={product.id}>
           <p>{product.name}</p>
           <p>{`${product.quantity}x`}</p>
-          {view === "summary" && (
+          {view === "summary" && product.observation && (
             <>
               <p>Observações:</p>
               <p>{product.observation}</p>
