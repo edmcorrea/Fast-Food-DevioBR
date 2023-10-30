@@ -18,6 +18,15 @@ class CustomerController {
     // this.thermalPrinter.thermalPrintExecute('customerCreated');
     res.status(201).json(customerCreated);
   }
+
+  updateCustomerStatus = async (req: Request, res: Response): Promise<void> => {
+    const { id } = req.params;
+
+    const statusUpdated = await this.customerService.updateCustomerStatus(req.body, Number(id));
+    console.log(statusUpdated);
+    
+    res.status(200).json(statusUpdated);
+  }
 }
 
 export default CustomerController;

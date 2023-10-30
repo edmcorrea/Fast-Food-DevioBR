@@ -8,5 +8,6 @@ const customerController = new CustomerController();
 
 router.get('/', customerController.getAllCustomers);
 router.post('/', validateNewCustomer, customerController.createCustomer);
+router.patch('/:id', validateNewCustomer, customerController.updateCustomerStatus);
 
 export default router;
