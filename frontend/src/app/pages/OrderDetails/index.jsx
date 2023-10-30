@@ -10,7 +10,7 @@ import { requestPostCustomers } from "../../services/requests/request.customer";
 const DEFAULT_DELAY = 5000;
 
 function OrderDetails() {
-  const { setSummaryList, summaryList } = useContext(Context);
+  const { setSummaryList, summaryList, setSucessNewCustomer } = useContext(Context);
   const navigate = useNavigate();
   const [customerName, setCustomerName] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('money');
@@ -45,10 +45,15 @@ function OrderDetails() {
     try {
       await requestPostCustomers('/customer', Data);
       setSummaryList([]);
+
       navigate("/");
+
+      setSucessNewCustomer(true);
+      setTimeout(() => setSucessNewCustomer(false), DEFAULT_DELAY);
     } catch (error) {
+      
       const { response: { data: { message } } } = error;
-      console.log('messageError', message);
+
       if(message.includes("customerName") && message.includes("allowed")) {
         setErr(true);
         setTimeout(() => setErr(false), DEFAULT_DELAY);

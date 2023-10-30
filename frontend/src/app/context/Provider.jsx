@@ -6,6 +6,8 @@ function Provider({ children }) {
   const [query, setQuery] = useState('');
   const [summaryList, setSummaryList] = useState([]);
   const [productsList, setProductsList] = useState([]);
+  const [sucessNewCustomer, setSucessNewCustomer] = useState(false);
+
 
   const context = useMemo(() => ({
     query,
@@ -14,10 +16,13 @@ function Provider({ children }) {
     setSummaryList,
     productsList,
     setProductsList,
+    sucessNewCustomer,
+    setSucessNewCustomer,
   }), [
     query,
     summaryList,
     productsList,
+    sucessNewCustomer,
   ]);
 
   return <Context.Provider value={ context }>{children}</Context.Provider>;
