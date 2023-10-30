@@ -1,15 +1,20 @@
 // import 't Orders.css'
 import { useContext, useState } from "react";
 import Context from "../../context/Context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Payment from "../../components/Payment";
 import SummaryListComponent from "../../components/SummaryListComponent";
 import TotalPrice from "../../components/TotalPrice";
+import { requestPostCustomers } from "../../services/requests/request.customer";
+
+const DEFAULT_DELAY = 5000;
 
 function OrderDetails() {
-  const { setSummaryList } = useContext(Context);
+  const { setSummaryList, summaryList } = useContext(Context);
+  const navigate = useNavigate();
   const [customerName, setCustomerName] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('money');
+  const [err, setErr] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -22,23 +27,36 @@ function OrderDetails() {
 
   const handleSummaryList = () => {
     setSummaryList([]);
-  }
+  };
 
   const handleSubmit = async () => {
-    // try {
-    //   if(btnName === 'Cadastrar') {
-    //     await requestPostCustomers('/customer', Data);
-    //   } else {
-    //     await requestPutCustomer(`/customer/${idCustm}`, Data);
-    //   }
-    //   submitSuccessCallback()
-    // } catch (error) {
-    //   const { response: { data: { message } } } = error;
-    //   setError({ bool: true, message });
-    //   setTimeout(() => setError({ bool: false, message: '' }), DEFAULT_DELAY);
-    // }
+    const Data = {
+      products: summaryList.map(item => {
+        return {
+          name: item.name,
+          observation: item.observation,
+          quantity: item.quantity,
+        };
+      }),
+      customerName,
+      status: "Preparing"
+    };
+    
+    try {
+      await requestPostCustomers('/customer', Data);
+      setSummaryList([]);
+      navigate("/");
+    } catch (error) {
+      const { response: { data: { message } } } = error;
+      console.log('messageError', message);
+      if(message.includes("customerName") && message.includes("allowed")) {
+        setErr(true);
+        setTimeout(() => setErr(false), DEFAULT_DELAY);
+      }
+
+    }
   }
-  
+
   return (
     <div>
       <h1>Resumo da compra</h1>
@@ -64,6 +82,8 @@ function OrderDetails() {
 
       <TotalPrice view="total"/>
 
+      {err && <h3> Insira o Nome do Cliente</h3>}
+
       <div>
         <Link to="/">
           <button
@@ -80,14 +100,14 @@ function OrderDetails() {
             Continuar Adicionando
           </button>
         </Link>
-        <Link to="/">
+        {/* <Link to="/"> */}
           <button
             type="button"
             onClick={handleSubmit}
           >
             Finalizar Pedido
           </button>
-        </Link>
+        {/* </Link> */}
       </div>
     </div>
   )
