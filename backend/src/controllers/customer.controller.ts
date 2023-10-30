@@ -10,9 +10,10 @@ class CustomerController {
     res.status(200).json(customers);
   };
 
-
-
-
+  createCustomer = async (req: Request, res: Response): Promise<void> => {
+    const customerCreated = await this.customerService.createCustomer(req.body);
+    res.status(201).json(customerCreated);
+  }
 }
 
 export default CustomerController;

@@ -2,7 +2,7 @@ import { Prisma } from '@prisma/client';
 
 export interface ICustomers {
   customerName: string;
-  productIds: Object[];
+  products: Object[];
   status: string;
 }
 
