@@ -1,19 +1,32 @@
 import { useEffect, useState } from 'react';
 import { customerMock } from '../../services/customers.mock';
 import { PropTypes } from "prop-types";
-import { productsMock } from '../../services/products.mock';
+
+import { requestGetCustomers } from '../../services/requests/request.customer';
 // import 't Orders.css'
 
 function CustomerDetails({statusOrder, router}) {
   const [filterCustomers, setFilterCustomers] = useState([]);
 
-  useEffect(()=> {
-    const filteredByStatus = customerMock.filter((customer) => (customer.status === statusOrder))
-    setFilterCustomers(filteredByStatus);
-  }, [statusOrder]); 
+  const reqGetCustomers = async () => {
+    let customers = [];
+    customers = await requestGetCustomers('/customer');
+    if(!customers.length) {
+      customers = customerMock;
+    }
 
+    const filteredByStatus = await customers.filter((customer) => (customer.status === statusOrder));
+
+    setFilterCustomers(filteredByStatus);
+  };
+
+  useEffect(() => {
+    reqGetCustomers()
+  }, [])
+  
   return (
     <>
+      {statusOrder === "Preparing" ? <h2>Preparando</h2> : <h2>Pronto</h2>}
       {filterCustomers.map((customer) => (
         <div key={customer.id}>
           {router === "kitchen" && (
@@ -22,13 +35,14 @@ function CustomerDetails({statusOrder, router}) {
             </div>
           )}
           <p>{customer.customerName}</p>
-          {router === "kitchen" && (
+          {router === "kitchen" && customer.products && customer.products.length > 0 && (
             <div>{customer.products
-              .map((order) => ( productsMock
-                .filter((product) => product.id === order.id)
-                .map((prodFiltered, idx) => (
-                  <p key={idx}>{prodFiltered.name}</p>
-                ))
+              .map((order, idx) => (
+                <section key={idx}>
+                  <p>{order.name}</p>
+                  <p>{order.quantity}</p>
+                  <p>{order.observation}</p>
+                </section>
               ))}
             </div>
           )}
