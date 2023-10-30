@@ -3,7 +3,7 @@
 Tasks - Usabilidade OBRIGATORIAS
 
 <!-- - Poderá ver uma pequena quantidade de produtos na tela -->
-  - Poderá selecionar os produtos da tela inicial
+  <!-- - Poderá selecionar os produtos da tela inicial -->
 
 <!-- - Criar input para pesquisar dados
   - É possível buscar produtos pelo seu NOME
@@ -23,12 +23,12 @@ Tasks - Usabilidade OBRIGATORIAS
   <!-- - Utilizar impressão termica -->
   - Descomentar a Função do thermal Printer no arquivo: backend>app>controllers>customer.controller
   - copiar o migration do prisma para o prisma do backend
-  - Deve liberar a tela para o proximo pedido
+  <!-- - Deve liberar a tela para o proximo pedido -->
   - persistir no storage
 
 - Cozinha
-  - Após finalizado o pedido, deve ser adicionado na cozinha
-    - O nome do cliente deve estar incluso no pedido (obrigatoraimente)
+  <!-- - Após finalizado o pedido, deve ser adicionado na cozinha -->
+    <!-- - O nome do cliente deve estar incluso no pedido (obrigatoraimente) -->
   - A cozinha pode dar baixa nos pedidos concluidos (a função "preparando" vai para o "concluido")
   - REMOVER CONSOLE.LOG E COMENTARIOS
 
@@ -36,18 +36,18 @@ Tasks - Usabilidade OBRIGATORIAS
 
 Tasks - Usabilidade OPCIONAIS
 
-- Pedidos devem aparecer para a cozinha em tempo real
+<!-- - Pedidos devem aparecer para a cozinha em tempo real -->
   - usar long Pooling ou WebSockets
-  - Implementar uma situação para quando o usuário compra mais de um produto
+  <!-- - Implementar uma situação para quando o usuário compra mais de um produto -->
 
 - Observações no Pedido
-  - O usuário pode incluir uma observação para a cozinha
+  <!-- - O usuário pode incluir uma observação para a cozinha -->
 
 - Formas de Pagamento (Finalização do pedido)
-  - Incluir as formas de pagamento na finalização do pedido.
+  <!-- - Incluir as formas de pagamento na finalização do pedido. -->
 
 - Pedidos em Concluidos
-  - Pedidos concluidos aparecem em uma tela com o nome do cliente 
+  <!-- - Pedidos concluidos aparecem em uma tela com o nome do cliente  -->
   - Editar o pedido já solicitado (em OrderDetails / SummaryOrder)
 
 

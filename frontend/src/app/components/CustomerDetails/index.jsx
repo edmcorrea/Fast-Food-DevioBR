@@ -24,16 +24,19 @@ function CustomerDetails({statusOrder, router}) {
   }, [])
   
   return (
-    <>
+    <div>
       {statusOrder === "Preparing" ? <h2>Preparando</h2> : <h2>Pronto</h2>}
       {filterCustomers.map((customer,idxx) => (
         <div key={idxx}>
+
           {router === "kitchen" && (
             <div>
-              <p>{customer.id}</p>
+              <p>{customer.codCustomer}</p>
             </div>
           )}
+
           <p>{customer.customerName}</p>
+
           {router === "kitchen" && customer.products && customer.products.length > 0 && (
             <div>{customer.products
               .map((order, idx) => (
@@ -43,11 +46,14 @@ function CustomerDetails({statusOrder, router}) {
                   <p>{order.observation}</p>
                 </section>
               ))}
+              <button> X </button>
+              <button> V </button>
             </div>
           )}
-        </div>
+
+        </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
       ))}
-    </>
+    </div>
   )
 }
 
