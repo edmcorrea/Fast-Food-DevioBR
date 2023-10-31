@@ -9,7 +9,7 @@
   border-radius: 5px;
   font-size: 12px;
   width: 150px;
-  height: 120px;
+  height: 180px;
   text-decoration: none;
   color: black;
   gap: 10px;
@@ -32,10 +32,16 @@
     }
   }
 
-  &-links {
+  &-btns {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 40px;
+    
+    &-links {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
 
     &-link {
       @include padraoProduct();
@@ -61,6 +67,29 @@
         background-color: green;
         opacity: 0.5;
       }
+
+      &-img {
+        width: 100px;
+        height: 100px;
+      }
     }
+
+    &-showMore {
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      background-color: #ff6a28;
+
+    }
+  }
+
+  &-arrows {
+    font-size: 25px;
   }
 }

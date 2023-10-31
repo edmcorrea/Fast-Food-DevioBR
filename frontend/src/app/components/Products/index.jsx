@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { productsMock } from "../../services/products.mock"
 import Context from "../../context/Context";
 import { Link } from "react-router-dom";
+import { BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi';
 import "./Products.scss";
 
 function Products() {
@@ -30,28 +31,34 @@ function Products() {
         <h3>Produtos</h3>
         <p>Selecione um produto para adicionar ao seu pedido</p>
       </section>
-      <section className="products-links">
-        {displayedProducts.map((product) => (
-          <Link
-            className={`products-links-link${summaryList.some((list) =>list.id == product.id) ? '-selected' : ''}`}
-            key={product.id}
-            to={`/product/${product.id}`}
-          >
-            <img src={product.img}
-              className="img"
-              alt={product.name}
-            />
-            <div className="products-links-link-texts">
-              <h4>{product.name}</h4>
-              <p>{product.ingredientes[0]}</p>          
-            </div>
-            <p className="products-links-link-price">{`R$ ${product.price.toFixed(2)}`}</p>
-          </Link>
-        ))}
-
+      <section className="products-btns">
+        <div className="products-btns-links">
+          {displayedProducts.map((product) => (
+            <Link
+              className={`products-btns-link${summaryList.some((list) =>list.id == product.id) ? '-selected' : ''}`}
+              key={product.id}
+              to={`/product/${product.id}`}
+            >
+              <img src={product.img}
+                className="products-btns-link-img"
+                alt={product.name}
+              />
+              <div className="products-btns-link-texts">
+                <h4>{product.name}</h4>
+                <p>{product.ingredientes[0]}</p>          
+              </div>
+              <p className="products-btns-link-price">{`R$ ${product.price.toFixed(2)}`}</p>
+            </Link>
+          ))}
+        </div>
         {!showAllProducts && (
-          <button onClick={toggleShowAllProducts} className="show-more-button">
-            Ver mais
+          <button onClick={toggleShowAllProducts} className="products-btns-showMore">
+            Ver mais <BiDownArrowAlt className="products-arrows"/>
+          </button>
+        )}
+        {showAllProducts && (
+          <button onClick={toggleShowAllProducts} className="products-btns-showMore">
+            Ver menos <BiUpArrowAlt className="products-arrows"/>
           </button>
         )}
       </section>
