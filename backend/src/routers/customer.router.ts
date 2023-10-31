@@ -9,5 +9,6 @@ const customerController = new CustomerController();
 router.get('/', customerController.getAllCustomers);
 router.post('/', validateNewCustomer, customerController.createCustomer);
 router.patch('/:id', validateNewCustomer, customerController.updateCustomerStatus);
+router.delete('/:id', customerController.deleteCustomerById);
 
 export default router;

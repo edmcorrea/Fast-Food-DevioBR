@@ -27,6 +27,17 @@ class CustomerController {
     
     res.status(200).json(statusUpdated);
   }
+
+  deleteCustomerById = async (req: Request, res: Response) : Promise<void> => {  
+    const { id } = req.params;
+  
+    // const findPost = await customerService.findById(id);
+    // if (!findPost) return res.status(404).json({ message: 'Post does not exist' });
+  
+    await this.customerService.deleteCustomerById(Number(id));
+  
+    res.status(204).end();
+  }
 }
 
 export default CustomerController;
