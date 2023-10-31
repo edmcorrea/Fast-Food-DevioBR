@@ -13,7 +13,7 @@ function Categories() {
       {categoriesMock.map((element) => (
         <button key={element.name} className='categories-btns-btn'>
           <img src={element.img}
-            className="img"
+            className="categories-img"
             alt={element.name}
             />
           <p>{element.name}</p>

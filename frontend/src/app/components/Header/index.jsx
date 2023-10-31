@@ -8,7 +8,7 @@ function Header() {
     <>
       <div className='header'>
         <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={burguers} className="logo react" alt="React logo" />
+          <img src={burguers} className="header-img" alt="React logo" />
         </a>
         <div className='header-links'>
           <Link to="/">Pedidos</Link>
