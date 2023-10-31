@@ -1,0 +1,121 @@
+@mixin padraoBtn {
+  padding: 19px 17px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productDetails {
+  padding: 20px 40px;
+  width: 60%;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+
+  &-title {
+    font-size: 30px;
+  }
+
+  &-filtered {
+    display: flex;
+    justify-content: space-between;
+
+    &-info {
+      display: flex;
+      width: 80%;
+      gap: 10px;
+
+      &-img {
+      width: 100px;
+      height: 100px;
+      margin: 20px 10px;
+      }
+
+      &-texts {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        &-title {
+          font-weight: 700;
+        }
+
+        &-ingredients {
+          display: flex;
+          flex-wrap: wrap;
+          color: rgb(139, 139, 139);
+
+          &-btns {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &-btn {
+              background-color: #ff6a28;
+              border: none;
+              font-size: 20px;
+              font-weight: 700;
+              border-radius: 100%;
+              padding: 5px 12px;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+
+    &-price {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+
+      p {
+        font-weight: 700;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &-observation {
+    display: flex;
+    flex-direction: column;
+
+    &-text {
+      font-weight: 700;
+      padding: 10px 20px;
+    }
+
+    &-input {
+      border: 1px solid rgb(218, 218, 218);
+      color: rgb(218, 218, 218);
+      font-size: 12px;
+    }
+  }
+
+  &-btns {
+    display: flex;
+    gap: 30px;
+    justify-content: end;
+
+    a{ 
+      text-decoration: none;
+    }
+
+    &-back {
+      @include padraoBtn();
+      color: #ff6a28;
+        border: 1px solid #ff6a28;
+    }
+
+    &-add {
+      @include padraoBtn();
+      border: none;
+        color: white;
+        background-color: #ff6a28;
+    }
+  }
+}

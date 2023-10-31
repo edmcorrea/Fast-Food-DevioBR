@@ -17,7 +17,7 @@ function OrderSummary() {
   return (
     <div className="orderSummary">
       <hr></hr>
-      { sucessNewCustomer ? (<p>CLIENTE CRIADO COM SUCESSO</p>)
+      { sucessNewCustomer ? (<p className="orderSummary-title green">CLIENTE CRIADO COM SUCESSO</p>)
         :(!summaryList.length ? (<p className="orderSummary-title">Nenhum produto adicionado</p>)
           :(
             <div className="orderSummary-container"> 

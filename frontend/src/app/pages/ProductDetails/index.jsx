@@ -1,8 +1,8 @@
-// import 't Orders.css'
 import { useContext, useEffect, useState } from "react";
 import { productsMock } from "../../services/products.mock"
 import { Link, useParams } from "react-router-dom";
 import Context from "../../context/Context";
+import './ProductDetails.scss'
 
 function ProductDetails() {
   const { id } = useParams();
@@ -46,52 +46,84 @@ function ProductDetails() {
   return (
     <>
       {!filteredProduct.length ? (<p>Carregando</p>) :
-      <div>
-        <h1>Revise seu pedido</h1>
+      <div className="productDetails">
+        <h1 className="productDetails-title">Revise seu pedido</h1>
         {filteredProduct.map((filtered)=> (
-          <div key={filtered.id}>
-            <p>{filtered.name}</p>
-            {filtered.ingredientes.map((ingrediente, idx)=>(
-              <div key={idx}>
-                <p>{ingrediente}</p>
-              </div>
-            ))}
-            <p>{`R$ ${filtered.price.toFixed(2)}`}</p>
+          <div key={filtered.id} className="productDetails-filtered">
+            <div className="productDetails-filtered-info">
+              <img 
+                src={filtered.img}
+                className="productDetails-filtered-info-img"
+                alt={filtered.name}
+              />
+
+              <div className="productDetails-filtered-info-texts">
+                <p className="productDetails-filtered-info-texts-title">{filtered.name}</p>
+
+                <div
+                  className="productDetails-filtered-info-texts-ingredients"
+                >
+                {filtered.ingredientes.map((ingredient, idx)=>(
+                  <div 
+                    key={idx}     
+                    className="productDetails-filtered-info-texts-ingredients-ingredient"
+                  > 
+                    <p>{`${ingredient}, `}</p>
+                  </div>
+                ))}
+                </div>
+                <div className="productDetails-filtered-info-texts-ingredients-btns">
+                  <button type="button" onClick={decrementQuantity}
+                    className="productDetails-filtered-info-texts-ingredients-btns-btn"
+                  >
+                    -
+                  </button>
+                  <span>{quantity}</span>
+                  <button type="button" onClick={incrementQuantity}
+                    className="productDetails-filtered-info-texts-ingredients-btns-btn"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>  
+            </div>
+
+            <div className="productDetails-filtered-price">
+              <h6>Total</h6>
+              <p>{`R$ ${(filtered.price*quantity).toFixed(2)}`}</p>
+            </div>
           </div>
         ))}
-        <div>
-          <button type="button" onClick={decrementQuantity}>
-            -
-          </button>
-          <span>{quantity}</span>
-          <button type="button" onClick={incrementQuantity}>
-            +
-          </button>
-        </div>
-        <div>
-          <label>Observações:</label>
+        <div className="productDetails-observation">
+          <label className="productDetails-observation-text">Observações</label>
           <textarea
-            rows="4"
-            cols="50"
+            rows="3"
             value={observation}
             onChange={handleObservationsChange}
+            placeholder="Insira uma observação ao pedido"
+            className="productDetails-observation-input"
           ></textarea>
         </div>
-        <Link to="/">
-          <button
-            type="button"
-          >
-            Voltar
-          </button>
-        </Link>
-        <Link to="/">
-          <button
-            type="button"
-            onClick={() => addToSummaryList(id)}
+
+        <div className="productDetails-btns">
+          <Link to="/">
+            <button
+              type="button"
+              className="productDetails-btns-back"
             >
-            Continuar Adicionando
-          </button>
-        </Link>
+              Voltar
+            </button>
+          </Link>
+          <Link to="/">
+            <button
+              type="button"
+              onClick={() => addToSummaryList(id)}
+              className="productDetails-btns-add"
+            >
+              Continuar Adicionando
+            </button>
+          </Link>
+        </div>
       </div>
       }
     </>
