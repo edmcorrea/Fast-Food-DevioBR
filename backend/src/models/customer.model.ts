@@ -26,7 +26,7 @@ class CustomerModel {
     }
   }
 
-  public async updateCustomerStatus(customer: ICustomers, id: number) {
+  public async updateCustomerStatus(customer: any, id: number) {
     try {
       return this.context.prisma.customer.update({
         where: {

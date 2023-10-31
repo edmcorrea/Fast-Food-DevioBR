@@ -10,7 +10,7 @@ class CustomerService {
     return this.customerModel.createCustomer(customer);
   }
 
-  public async updateCustomerStatus(customer: ICustomers, id: number) {
+  public async updateCustomerStatus(customer: any, id: number) {
     return this.customerModel.updateCustomerStatus(customer, id);
   }
 
