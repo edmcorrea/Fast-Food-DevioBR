@@ -1,0 +1,58 @@
+
+@mixin padraoBtn {
+  padding: 19px 17px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orderSummary {
+  padding: 0 50px;
+
+  hr {
+    margin: 70px 0;
+    border: 1px solid rgb(209, 209, 209);
+  }
+
+  
+  &-title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-btns {
+      display: flex;
+      justify-content: end;
+      gap: 40px;
+      margin-top: 25px;
+      margin-bottom: 50px;
+
+      a{ text-decoration: none;}
+
+      &-btnCancelar {
+        @include padraoBtn();
+        color: #ff6a28;
+        border: 1px solid #ff6a28;
+      }
+
+      &-btnFinalizar {
+        @include padraoBtn();
+        border: none;
+        color: white;
+        background-color: #ff6a28;
+
+      }
+    }
+  }
+}
