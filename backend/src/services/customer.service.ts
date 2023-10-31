@@ -1,6 +1,5 @@
 import { ICustomers, IResponseCustomers } from '../interfaces';
 import CustomerModel from '../models/customer.model';
-import HttpException from '../utils/httpException';
 
 class CustomerService {
   private customerModel = new CustomerModel();
@@ -13,6 +12,10 @@ class CustomerService {
 
   public async updateCustomerStatus(customer: ICustomers, id: number) {
     return this.customerModel.updateCustomerStatus(customer, id);
+  }
+
+  public async deleteCustomerById(id: number) {
+    return this.customerModel.deleteCustomerById(id);
   }
 }
 

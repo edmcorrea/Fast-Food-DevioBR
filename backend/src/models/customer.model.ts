@@ -43,7 +43,13 @@ class CustomerModel {
     }
   }
 
-  
+  public async deleteCustomerById(id: number) {
+    return this.context.prisma.customer.delete({
+      where: {
+        codCustomer: id,
+      },
+    })
+  }
 }
 
 export default CustomerModel;
