@@ -2,17 +2,18 @@
 import { useContext } from "react";
 import Context from "../../context/Context";
 import { PropTypes } from "prop-types";
+import "./TotalPrice.scss"
 
 function TotalPrice({ view }) {
   const { summaryList } = useContext(Context);
 
   return (
-    <div>
+    <div className="totalPrice">
       {view === "pedido"
-        ? <h2>Total de pedido:</h2>
+        ? <h2 >Total do pedido:</h2>
         : <h2>Valor Total</h2>
       }
-      <h2>{`R$ ${summaryList.reduce((acc, product) => {
+      <h2 className="totalPrice-price">{`R$ ${summaryList.reduce((acc, product) => {
           acc += product.price*product.quantity;
           return acc;
         }, 0).toFixed(2)}`}

@@ -3,6 +3,7 @@ import { useContext } from "react";
 import Context from "../../context/Context";
 import { PropTypes } from "prop-types";
 import TotalPrice from "../TotalPrice";
+import "./SummaryListComponent.scss"
 
 function SummaryListComponent({view}) {
   const { summaryList, setSummaryList } = useContext(Context);
@@ -13,25 +14,33 @@ function SummaryListComponent({view}) {
   };
 
   return (
-    <div>
+    <div className="summaryListComponent">
       {summaryList.map((product) => (
-        <div key={product.id}>
-          <p>{product.name}</p>
-          <p>{`${product.quantity}x`}</p>
-          {view === "summary" && product.observation && (
-            <>
-              <p>Observações:</p>
-              <p>{product.observation}</p>
-            </>
-          )}
-          <p>{`R$ ${product.price.toFixed(2)}`}</p>
+        <div key={product.id} className="summaryListComponent-productContainer">
+          <div className="summaryListComponent-productContainer-texts">
+            <div className="summaryListComponent-productContainer-texts-name">
+              <h6>{`${product.quantity}x`}</h6>
+              <h6>{product.name}</h6>
+
+            </div>
+              {view === "summary" && product.observation && (
+                <div className="summaryListComponent-productContainer-texts-obs">
+                  <h6>Observações:</h6>
+                  <p>{product.observation}</p>
+                </div>
+              )}
+          </div>
+
+          <p className="summaryListComponent-productContainer-price">{`R$ ${product.price.toFixed(2)}`}</p>
+
           {view === "summary" && (
             <>
               <button
-              type="button"
+                type="button"
+                className="summaryListComponent-productContainer-btn"
                 onClick={()=> removeOneSummaryList(product.id)}
               >
-                Remover
+                Remover Item
               </button>
             </>
           )}

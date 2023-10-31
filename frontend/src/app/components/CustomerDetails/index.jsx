@@ -10,11 +10,11 @@ function CustomerDetails({statusOrder, router}) {
 
   const reqGetCustomers = async () => {
     let customers = [];
-    customers = await requestGetCustomers('/customer');
-    if(!customers.length) {
-      customers = customerMock;
+    try {
+      customers = await requestGetCustomers('/customer');
+    } catch (error) {
+      customers = customerMock; 
     }
-
     const filteredByStatus = await customers.filter((customer) => (customer.status === statusOrder));
     setFilterCustomers(filteredByStatus);
   };
@@ -34,7 +34,7 @@ function CustomerDetails({statusOrder, router}) {
       } 
       if (action === "update") {
         await requestPutCustomer(`/customer/${id}`, Data);
-      } 
+      }
       window.location.reload();
 
     } catch (error) {

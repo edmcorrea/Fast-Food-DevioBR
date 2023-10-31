@@ -66,6 +66,7 @@
         @include padraoProduct();
         background-color: green;
         opacity: 0.5;
+        cursor: not-allowed;
       }
 
       &-img {

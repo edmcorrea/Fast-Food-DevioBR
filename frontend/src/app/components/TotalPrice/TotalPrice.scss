@@ -1,0 +1,15 @@
+.totalPrice {
+  // border: 1px solid rgb(196, 196, 196);
+  // padding: 20px 30px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  // align-items: ;
+  
+  &-price {
+    font-size: 27px;
+    font-weight: bold;
+    // background-color: red;
+  }
+}
