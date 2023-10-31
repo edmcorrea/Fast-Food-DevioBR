@@ -19,3 +19,8 @@ export const requestPutCustomer = async (endpoint,body) => {
 
   return data;
 };
+
+export const requestRemoveCustomer = async (endpoint) => {
+  const { data } = await api.delete(endpoint);
+  return data;
+};

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { customerMock } from '../../services/customers.mock';
 import { PropTypes } from "prop-types";
 
-import { requestGetCustomers } from '../../services/requests/request.customer';
+import { requestGetCustomers, requestRemoveCustomer } from '../../services/requests/request.customer';
 // import 't Orders.css'
 
 function CustomerDetails({statusOrder, router}) {
@@ -21,7 +21,23 @@ function CustomerDetails({statusOrder, router}) {
 
   useEffect(() => {
     reqGetCustomers()
-  }, [])
+  }, []);
+
+  const handleSubmit = async (id, action) => {
+
+    try {
+      if(action === "remove") {
+        await requestRemoveCustomer(`/customer/${id}`);
+        window.location.reload();
+      }
+
+    } catch (error) {
+      const { response: { data: { message } } } = error;
+      console.log(message);
+      // setError({ bool: true, message });
+      // setTimeout(() => setError({ bool: false, message: '' }), DEFAULT_DELAY);
+    }
+  };
   
   return (
     <div>
@@ -46,7 +62,7 @@ function CustomerDetails({statusOrder, router}) {
                   <p>{order.observation}</p>
                 </section>
               ))}
-              <button> X </button>
+              <button onClick={() => handleSubmit(customer.codCustomer, "remove")}> X </button>
               <button> V </button>
             </div>
           )}
