@@ -14,8 +14,8 @@ export const requestPostCustomers = async (endpoint, body) => {
   return data;
 };
 
-export const requestPutCustomer = async (endpoint,body) => {
-  const { data } = await api.put(endpoint, body);
+export const requestPutCustomer = async (endpoint, body) => {
+  const { data } = await api.patch(endpoint, body);
 
   return data;
 };
