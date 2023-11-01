@@ -11,15 +11,15 @@ function ProductDetails() {
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [observation, setObservation] = useState("");
   const [quantity, setQuantity] = useState(1); 
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     const filtered = productsMock.filter((product) => product.id == id)
     setFilteredProduct(filtered);
   }, [id]);
 
-    const addToSummaryList = (id) => {
+  const addToSummaryList = (id) => {
     const updatedSummaryList = [...summaryList];
-    
+
     let foundProduct = productsMock.find((product) => product.id == id);
 
     foundProduct.observation = observation;
@@ -46,85 +46,85 @@ function ProductDetails() {
   return (
     <div className="containerProductDetails">
       {!filteredProduct.length ? (<p>Carregando</p>) :
-      <div className="productDetails">
-        <h1 className="productDetails-title">Revise seu pedido</h1>
-        {filteredProduct.map((filtered)=> (
-          <div key={filtered.id} className="productDetails-filtered">
-            <div className="productDetails-filtered-info">
-              <img 
-                src={filtered.img}
-                className="productDetails-filtered-info-img"
-                alt={filtered.name}
-              />
+        <div className="productDetails">
+          <h1 className="productDetails-title">Revise seu pedido</h1>
+          {filteredProduct.map((filtered) => (
+            <div key={filtered.id} className="productDetails-filtered">
+              <div className="productDetails-filtered-info">
+                <img
+                  src={filtered.img}
+                  className="productDetails-filtered-info-img"
+                  alt={filtered.name}
+                />
 
-              <div className="productDetails-filtered-info-texts">
-                <p className="productDetails-filtered-info-texts-title">{filtered.name}</p>
+                <div className="productDetails-filtered-info-texts">
+                  <p className="productDetails-filtered-info-texts-title">{filtered.name}</p>
 
-                <div
-                  className="productDetails-filtered-info-texts-ingredients"
-                >
-                {filtered.ingredientes.map((ingredient, idx)=>(
-                  <div 
-                    key={idx}     
-                    className="productDetails-filtered-info-texts-ingredients-ingredient"
-                  > 
-                    <p>{`${ingredient}, `}</p>
+                  <div
+                    className="productDetails-filtered-info-texts-ingredients"
+                  >
+                    {filtered.ingredientes.map((ingredient, idx) => (
+                      <div
+                        key={idx}
+                        className="productDetails-filtered-info-texts-ingredients-ingredient"
+                      >
+                        <p>{`${ingredient}, `}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                  <div className="productDetails-filtered-info-texts-ingredients-btns">
+                    <button type="button" onClick={decrementQuantity}
+                      className="productDetails-filtered-info-texts-ingredients-btns-btn"
+                    >
+                      -
+                    </button>
+                    <span>{quantity}</span>
+                    <button type="button" onClick={incrementQuantity}
+                      className="productDetails-filtered-info-texts-ingredients-btns-btn"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
-                <div className="productDetails-filtered-info-texts-ingredients-btns">
-                  <button type="button" onClick={decrementQuantity}
-                    className="productDetails-filtered-info-texts-ingredients-btns-btn"
-                  >
-                    -
-                  </button>
-                  <span>{quantity}</span>
-                  <button type="button" onClick={incrementQuantity}
-                    className="productDetails-filtered-info-texts-ingredients-btns-btn"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>  
-            </div>
+              </div>
 
-            <div className="productDetails-filtered-price">
-              <h6>Total</h6>
-              <p>{`R$ ${(filtered.price*quantity).toFixed(2)}`}</p>
+              <div className="productDetails-filtered-price">
+                <h6>Total</h6>
+                <p>{`R$ ${(filtered.price * quantity).toFixed(2)}`}</p>
+              </div>
             </div>
+          ))}
+          <div className="productDetails-observation">
+            <label className="productDetails-observation-text">Observações</label>
+            <textarea
+              rows="3"
+              value={observation}
+              onChange={handleObservationsChange}
+              placeholder="Insira uma observação ao pedido"
+              className="productDetails-observation-input"
+            ></textarea>
           </div>
-        ))}
-        <div className="productDetails-observation">
-          <label className="productDetails-observation-text">Observações</label>
-          <textarea
-            rows="3"
-            value={observation}
-            onChange={handleObservationsChange}
-            placeholder="Insira uma observação ao pedido"
-            className="productDetails-observation-input"
-          ></textarea>
-        </div>
 
-        <div className="productDetails-btns">
-          <Link to="/">
-            <button
-              type="button"
-              className="productDetails-btns-back"
-            >
-              Voltar
-            </button>
-          </Link>
-          <Link to="/">
-            <button
-              type="button"
-              onClick={() => addToSummaryList(id)}
-              className="productDetails-btns-add"
-            >
-              Continuar Adicionando
-            </button>
-          </Link>
+          <div className="productDetails-btns">
+            <Link to="/">
+              <button
+                type="button"
+                className="productDetails-btns-back"
+              >
+                Voltar
+              </button>
+            </Link>
+            <Link to="/">
+              <button
+                type="button"
+                onClick={() => addToSummaryList(id)}
+                className="productDetails-btns-add"
+              >
+                Continuar Adicionando
+              </button>
+            </Link>
+          </div>
         </div>
-      </div>
       }
     </div>
   )

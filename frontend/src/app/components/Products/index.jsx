@@ -1,4 +1,3 @@
-// import 't Orders.css'
 import { useContext, useEffect, useState } from "react";
 import { productsMock } from "../../services/products.mock"
 import Context from "../../context/Context";
