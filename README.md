@@ -24,14 +24,21 @@ Tasks - Usabilidade OBRIGATORIAS
   - Descomentar a Função do thermal Printer no arquivo: backend>app>controllers>customer.controller
   - copiar o migration do prisma para o prisma do backend
   <!-- - Deve liberar a tela para o proximo pedido -->
-  - persistir no storage
 
 - Cozinha
   <!-- - Após finalizado o pedido, deve ser adicionado na cozinha -->
     <!-- - O nome do cliente deve estar incluso no pedido (obrigatoraimente) -->
-  - A cozinha pode dar baixa nos pedidos concluidos (a função "preparando" vai para o "concluido")
+  <!-- - A cozinha pode dar baixa nos pedidos concluidos (a função "preparando" vai para o "concluido") -->
+  <!-- - Inserir a mensagem de "pedido criado" em "Order" -->
+  - responsividade
+  - alimentar categories (tanto o categorie quanto as infos dos produtos)
+  - fazer readme
+  - persistir no storage
+  <!-- - inserir "vezinho" no product já escolhido -->
+  - inserir checkbox on productdetails
+  - background da pagina principal
   - REMOVER CONSOLE.LOG E COMENTARIOS
-  - Inserir a mensagem de "pedido criado" em "Order"
+  
 
 
 

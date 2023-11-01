@@ -17,8 +17,51 @@
     }
   }
 
+  &-hamburguer {
+    display: none;
+  }
+
+  &-showLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    background-color: #ff6a28;
+    padding: 20px 30px;
+    border-radius: 5px;
+    
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
+    }
+  }
+
   &-img {
     width: 100px;
     height: 70px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 3%;
+
+    &-links {
+      display: none;
+    }
+
+    &-hamburguer {
+      display: block;
+      border: none;
+      background-color: #ff6a28;
+
+      &-img {
+        width: 40px;
+        height: 40px;
+        color: white;
+      }
+    }
   }
 }
