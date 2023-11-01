@@ -7,8 +7,6 @@ import "./OrderSummary.scss";
 function OrderSummary() {
   const { summaryList, setSummaryList } = useContext(Context);
 
-
-
   const removeAllSummaryList = () => {
     setSummaryList([]);
   };
