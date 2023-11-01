@@ -19,8 +19,8 @@
       color: #ff6a28;
       border-radius: 5px;
       text-align: center;
-      height: 30px;
-      width: 70%;
+      height: 40px;
+      width: 90%;
       font-size: 16px;
 
       &::placeholder {
@@ -28,6 +28,17 @@
 
       }
 
+    }
+  }
+
+  @media (max-width: 768px) {
+    .inputSearch-label-input {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    h2 {
+      text-align: center;
     }
   }
 }
