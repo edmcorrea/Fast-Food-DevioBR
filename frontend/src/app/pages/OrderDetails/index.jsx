@@ -3,7 +3,6 @@ import Context from "../../context/Context";
 import { Link, useNavigate } from "react-router-dom";
 import Payment from "../../components/Payment";
 import SummaryListComponent from "../../components/SummaryListComponent";
-import TotalPrice from "../../components/TotalPrice";
 import { requestPostCustomers } from "../../services/requests/request.customer";
 import './OrderDetails.scss';
 
@@ -64,12 +63,14 @@ function OrderDetails() {
 
   return (
     <div className="orderDetails">
-          <h3 className="orderDetails-title">Pagamento</h3>
+      <div className="orderDetails-divtitle">
+        <h3 className="orderDetails-title">Pagamento</h3>
+      </div>
 
       <div className="orderDetails-container">
         <div className="orderDetails-container-orderSummary">
           <h3 className="orderDetails-container-orderSummary-title">Resumo da compra</h3>
-          <SummaryListComponent view="compra"/>
+          <SummaryListComponent view="compra" />
 
           <h2 className="orderDetails-container-orderSummary-customer">Nome do Cliente</h2>
           <label htmlFor="customerName" className="orderDetails-container-orderSummary-label">
@@ -79,8 +80,8 @@ function OrderDetails() {
               type="text"
               name="customerName"
               placeholder="Insira o primeiro nome aqui"
-              value={ customerName }
-              onChange={ handleInputChange }
+              value={customerName}
+              onChange={handleInputChange}
             />
           </label>
           {err && <h3 className="orderDetails-red">Insira o Primeiro Nome</h3>}
@@ -91,10 +92,8 @@ function OrderDetails() {
             paymentMethod={paymentMethod}
             handleInputChange={handleInputChange}
           />
-
-          </div>
+        </div>
       </div>
-
 
       <div className="orderDetails-btns">
         <Link to="/">
@@ -109,7 +108,7 @@ function OrderDetails() {
         <Link to="/">
           <button
             type="button"
-            className="orderDetails-btns-btnCancelar"
+            className="orderDetails-btns-btnContinuar"
           >
             Continuar Adicionando
           </button>
@@ -123,7 +122,7 @@ function OrderDetails() {
         </button>
       </div>
     </div>
-  )
+  );
 }
 
-export default OrderDetails
+export default OrderDetails;
