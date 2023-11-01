@@ -62,6 +62,18 @@
 
       }
     }
+
+    @media (max-width: 768px) {
+
+      &-btns {
+        flex-direction: column;
+        gap: 15px;
+
+        &-btnFinalizar {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 

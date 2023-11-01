@@ -40,8 +40,6 @@ function CustomerDetails({statusOrder, router}) {
     } catch (error) {
       const { response: { data: { message } } } = error;
       console.log(message);
-      // setError({ bool: true, message });
-      // setTimeout(() => setError({ bool: false, message: '' }), DEFAULT_DELAY);
     }
   };
   

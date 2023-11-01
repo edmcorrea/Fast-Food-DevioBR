@@ -3,4 +3,13 @@
     display: flex;
     justify-content: space-around;
   }
+
+  @media (max-width: 768px) {
+
+    &-orders {
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+  }
 }

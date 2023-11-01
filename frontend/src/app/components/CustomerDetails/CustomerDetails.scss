@@ -81,3 +81,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .customerDetails {
+    width: 90%;
+
+    &-orders-order {
+      // justify-content: center;
+    }
+  }
+}

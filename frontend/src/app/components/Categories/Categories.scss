@@ -33,6 +33,7 @@
       max-width: 100%;
       text-align: center;
       padding: 10px;
+      white-space: nowrap;
     }
   }
   &-img {
@@ -42,7 +43,7 @@
 
   @media (max-width: 768px) {
     .categories-btns-btn {
-      font-size: 16px; /* Ajuste de fonte específico para telas menores, se necessário */
+      font-size: 16px;
     }
   }
 }
