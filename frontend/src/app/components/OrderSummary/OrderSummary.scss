@@ -20,10 +20,17 @@
 
   
   &-title {
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-    margin-bottom: 50px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    
+    &-none {
+      display: flex;
+      justify-content: center;
+      font-size: 25px;
+      margin-bottom: 50px;
+
+    }
   }
 
   &-container {

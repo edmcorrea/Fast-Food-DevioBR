@@ -1,0 +1,30 @@
+@mixin padraoPayment {
+  padding: 18px 30px;
+  width: 89%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &-title {
+    font-weight: bold;
+  }
+  
+  &-methodPayment {
+    @include padraoPayment();
+    border: 1px solid rgb(211, 211, 211);
+
+    &-selected {
+      @include padraoPayment();
+      border: 1px solid #ff6a28;
+      color: #ff6a28;
+    }
+  }
+}

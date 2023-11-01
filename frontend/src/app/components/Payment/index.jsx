@@ -1,12 +1,13 @@
-// import 't Orders.css'
+import './Payment.scss'
 import { PropTypes } from "prop-types";
 
 function Payment({ paymentMethod, handleInputChange }) {
   
   return (
-    <div>
-      <h2>Selecione a forma de pagamento:</h2>
-      <label>
+    <div className="payment">
+      <h2 className="payment-title">Selecione a forma de pagamento:</h2>
+      <label className={`payment-methodPayment${paymentMethod === 'debit' ? "-selected" : ""}`}>
+        <h3>Débito</h3>
         <input
           type="radio"
           name="paymentMethod"
@@ -14,9 +15,9 @@ function Payment({ paymentMethod, handleInputChange }) {
           checked={paymentMethod === 'debit'}
           onChange={handleInputChange}
         />
-          Débito
       </label>
-      <label>
+      <label className={`payment-methodPayment${paymentMethod === 'credit' ? "-selected" : ""}`}>
+        Crédito
         <input
           type="radio"
           name="paymentMethod"
@@ -24,17 +25,17 @@ function Payment({ paymentMethod, handleInputChange }) {
           checked={paymentMethod === 'credit'}
           onChange={handleInputChange}
         />
-          Crédito
       </label>
-      <label>
+      <label className={`payment-methodPayment${paymentMethod === 'money' ? "-selected" : ""}`}>
+        Dinheiro
         <input
           type="radio"
           name="paymentMethod"
           value="money"
+          className='payment-methodPayment-selected-input'
           checked={paymentMethod === 'money'}
           onChange={handleInputChange}
         />
-        Dinheiro
       </label>
     </div>
   )
