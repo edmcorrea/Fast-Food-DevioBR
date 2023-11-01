@@ -92,7 +92,6 @@ function OrderDetails() {
             handleInputChange={handleInputChange}
           />
 
-          <TotalPrice view="total"/>
           </div>
       </div>
 

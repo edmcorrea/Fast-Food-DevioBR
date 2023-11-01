@@ -3,7 +3,7 @@ import { customerMock } from '../../services/customers.mock';
 import { PropTypes } from "prop-types";
 
 import { requestGetCustomers, requestPutCustomer, requestRemoveCustomer } from '../../services/requests/request.customer';
-// import 't Orders.css'
+import './CustomerDetails.scss'
 
 function CustomerDetails({statusOrder, router}) {
   const [filterCustomers, setFilterCustomers] = useState([]);
@@ -46,38 +46,58 @@ function CustomerDetails({statusOrder, router}) {
   };
   
   return (
-    <div>
-      {statusOrder === "Preparing" ? <h2>Preparando</h2> : <h2>Pronto</h2>}
+    <div className='customerDetails'>
+      <h2 className='customerDetails-title'>{statusOrder === "Preparing" ? "Preparando" : "Pronto"}
+      </h2>
 
-      {filterCustomers.map((customer,idxx) => (
-        <div key={idxx}>
-          {router === "kitchen" && (
+      <div className='customerDetails-orders'>
+        {filterCustomers.map((customer,idxx) => (
+          <div key={idxx} className='customerDetails-orders-order'>
             <div>
-              <p>{customer.codCustomer}</p>
-            </div>
-          )}
+              <p className={`customerDetails-orders-order-title${router === "status" ? '-status' :''}`}>
+                {router === "kitchen" && (
+                  <span>
+                    {`${customer.codCustomer} - `}
+                  </span>
+                )}
+                {customer.customerName}
+              </p>
 
-          <p>{customer.customerName}</p>
-
-          {router === "kitchen" && customer.products && customer.products.length > 0 && (
-            <div>{customer.products
-              .map((order, idx) => (
-                <section key={idx}>
-                  <p>{order.name}</p>
-                  <p>{`${order.quantity}x`}</p>
-                  <p>{order.observation}</p>
-                </section>
-              ))}
-
-              <button onClick={() => handleSubmit(customer.codCustomer, "remove")}> X </button>
-              {statusOrder === "Preparing" && (
-                <button onClick={() => handleSubmit(customer.codCustomer, "update")}> V </button>
+              {router === "kitchen" && customer.products && customer.products.length > 0 && (
+                <div className='customerDetails-orders-order-container'>{customer.products
+                  .map((order, idx) => (
+                    <section key={idx} className='customerDetails-orders-order-products'>
+                      <p className='customerDetails-orders-order-products-product'> <span>{`${order.quantity}x `}</span> {order.name}</p>
+                      { order.observation && order.observation.length 
+                        && <p className='customerDetails-orders-order-products-observation'>{`Observações: ${order.observation}`}</p>
+                      }
+                    </section>
+                  ))}
+                </div>
               )}
             </div>
-          )}
 
-        </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-      ))}
+            {router === "kitchen" && customer.products && customer.products.length > 0 && (
+              <div className='customerDetails-orders-order-btns'>
+                <button
+                  onClick={() => handleSubmit(customer.codCustomer, "remove")}
+                  className='customerDetails-orders-order-btns-cancelar'
+                >
+                  X 
+                </button>
+                {statusOrder === "Preparing" && (
+                  <button
+                  onClick={() => handleSubmit(customer.codCustomer, "update")}
+                  className='customerDetails-orders-order-btns-completed'
+                  >
+                    V 
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

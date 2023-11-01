@@ -1,7 +1,25 @@
+import { useContext, useEffect, useState } from 'react';
 import './Payment.scss'
 import { PropTypes } from "prop-types";
+import Context from '../../context/Context';
 
 function Payment({ paymentMethod, handleInputChange }) {
+  const { summaryList } = useContext(Context);
+  const [valueDelivered, setValueDelivered] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
+
+
+  const handleValueDelivered = (event) => {
+    const { value } = event.target;
+    setValueDelivered(value);
+  };
+
+  useEffect(() => {
+    setTotalPrice(summaryList.reduce((acc, product) => {
+      acc += product.price*product.quantity;
+      return acc;
+    }, 0))
+  },[]);
   
   return (
     <div className="payment">
@@ -37,6 +55,25 @@ function Payment({ paymentMethod, handleInputChange }) {
           onChange={handleInputChange}
         />
       </label>
+
+      {paymentMethod === 'money' && 
+        <div className="payment-prices">
+          <label className="payment-prices-valueDelivered">
+            <p className="payment-prices-valueDelivered-title"> Valor entregue</p>
+            <input
+              type="number"
+              placeholder={`Valor mínimo é R$ ${totalPrice.toFixed(2)}`}
+              name="delivered"
+              value={valueDelivered}
+              onChange={handleValueDelivered}
+            />
+          </label>
+          <div className="payment-prices-valueDelivered">
+            <p className="payment-prices-valueDelivered-title">Troco</p>
+            <p className="payment-prices-valueDelivered-change">{valueDelivered == "" ? '0.00' : (valueDelivered-totalPrice).toFixed(2) }</p>
+          </div>
+        </div>
+      }
     </div>
   )
 }
