@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { productsMock } from "../../services/products.mock"
 import Context from "../../context/Context";
 import { Link } from "react-router-dom";
-import { BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi';
+import { BiDownArrowAlt, BiUpArrowAlt, BiCheck } from 'react-icons/bi';
 import "./Products.scss";
 
 function Products() {
@@ -43,6 +43,7 @@ function Products() {
                 <p>{product.ingredientes[0]}</p>          
               </div>
               <p className="products-btns-link-price">{`R$ ${product.price.toFixed(2)}`}</p>
+              {summaryList.some((list) =>list.id == product.id) && <BiCheck className="products-btns-link-checked"/>}
             </Link>
           ))}
         </div>

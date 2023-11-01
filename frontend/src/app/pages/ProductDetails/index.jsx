@@ -44,7 +44,7 @@ function ProductDetails() {
   };
 
   return (
-    <>
+    <div className="containerProductDetails">
       {!filteredProduct.length ? (<p>Carregando</p>) :
       <div className="productDetails">
         <h1 className="productDetails-title">Revise seu pedido</h1>
@@ -126,7 +126,7 @@ function ProductDetails() {
         </div>
       </div>
       }
-    </>
+    </div>
   )
 }
 
