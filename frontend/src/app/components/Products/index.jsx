@@ -9,11 +9,6 @@ import "./Products.scss";
 function Products() {
   const { productsList, setProductsList, summaryList } = useContext(Context);
   const [showAllProducts, setShowAllProducts] = useState(false);
-  // const [showOrderDetails, setShowOrderDetails] = useState(false);
-
-  // const handleOrderDetails = () => {
-  //   setShowOrderDetails(!showOrderDetails);
-  // }
 
   useEffect(() => {
     setProductsList(productsMock);

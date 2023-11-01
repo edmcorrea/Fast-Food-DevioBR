@@ -31,6 +31,7 @@ Tasks - Usabilidade OBRIGATORIAS
     <!-- - O nome do cliente deve estar incluso no pedido (obrigatoraimente) -->
   - A cozinha pode dar baixa nos pedidos concluidos (a função "preparando" vai para o "concluido")
   - REMOVER CONSOLE.LOG E COMENTARIOS
+  - Inserir a mensagem de "pedido criado" em "Order"
 
 
 
