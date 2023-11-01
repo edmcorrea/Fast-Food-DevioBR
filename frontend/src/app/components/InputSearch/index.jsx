@@ -22,7 +22,7 @@ function InputSearch() {
  
   return (
     <div className='inputSearch'>
-      <h2>Seja bem vindo!</h2>
+      <h2>Seja bem vindo ao Burguer!</h2>
       <label htmlFor="home" className="inputSearch-label">
         <input
           className="inputSearch-label-input"

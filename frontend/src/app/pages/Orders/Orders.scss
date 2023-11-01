@@ -1,0 +1,23 @@
+.order {
+  position: relative;
+
+  
+  &-sucessCustomer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(176, 241, 115);
+    margin: auto;
+    width: 70%;
+    height: 100px;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    border: 1px solid green;
+    border-radius: 5px;
+  }
+}
