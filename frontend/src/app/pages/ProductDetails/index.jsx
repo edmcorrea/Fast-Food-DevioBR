@@ -4,14 +4,16 @@ import { Link, useParams } from "react-router-dom";
 import Context from "../../context/Context";
 import './ProductDetails.scss'
 import { setSummaryListLocalStorage } from "../../services/getAndSetLocalStorage";
+import InputProducts from "../../components/CheckboxProducts";
 
 function ProductDetails() {
   const { id } = useParams();
   const { summaryList, setSummaryList } = useContext(Context);
 
   const [filteredProduct, setFilteredProduct] = useState([]);
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   const [observation, setObservation] = useState("");
-  const [quantity, setQuantity] = useState(1); 
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const filtered = productsMock.filter((product) => product.id == id)
@@ -22,7 +24,10 @@ function ProductDetails() {
     const updatedSummaryList = [...summaryList];
 
     let foundProduct = productsMock.find((product) => product.id == id);
+    console.log(foundProduct);
 
+    foundProduct.price += selectedCheckboxes.length;
+    foundProduct.additional = selectedCheckboxes;
     foundProduct.observation = observation;
     foundProduct.quantity = quantity;
 
@@ -30,6 +35,8 @@ function ProductDetails() {
     setSummaryList(updatedSummaryList);
     setSummaryListLocalStorage(updatedSummaryList);
   }
+
+  
 
   const handleObservationsChange = (event) => {
     setObservation(event.target.value);
@@ -96,16 +103,13 @@ function ProductDetails() {
               </div>
             </div>
           ))}
-          <div className="productDetails-observation">
-            <label className="productDetails-observation-text">Observações</label>
-            <textarea
-              rows="3"
-              value={observation}
-              onChange={handleObservationsChange}
-              placeholder="Insira uma observação ao pedido"
-              className="productDetails-observation-input"
-            ></textarea>
-          </div>
+          
+          <InputProducts
+            selectedCheckboxes={selectedCheckboxes}
+            setSelectedCheckboxes={setSelectedCheckboxes}
+            observation={observation}
+            handleObservationsChange={handleObservationsChange}
+          />
 
           <div className="productDetails-btns">
             <Link to="/">
