@@ -4,6 +4,7 @@ import Context from "../../context/Context";
 import { PropTypes } from "prop-types";
 import TotalPrice from "../TotalPrice";
 import "./SummaryListComponent.scss"
+import { setSummaryListLocalStorage } from "../../services/getAndSetLocalStorage";
 
 function SummaryListComponent({view}) {
   const { summaryList, setSummaryList } = useContext(Context);
@@ -11,6 +12,7 @@ function SummaryListComponent({view}) {
   const removeOneSummaryList = (id) => {
     const filteredWithOutProduct = summaryList.filter((product) => product.id != id);
     setSummaryList(filteredWithOutProduct);
+    setSummaryListLocalStorage(filteredWithOutProduct);
   };
 
   return (

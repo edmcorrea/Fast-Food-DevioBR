@@ -30,9 +30,10 @@ Tasks - Usabilidade OBRIGATORIAS
     <!-- - O nome do cliente deve estar incluso no pedido (obrigatoraimente) -->
   <!-- - A cozinha pode dar baixa nos pedidos concluidos (a função "preparando" vai para o "concluido") -->
   <!-- - Inserir a mensagem de "pedido criado" em "Order" -->
-  - responsividade
+  <!-- - responsividade -->
   - alimentar categories (tanto o categorie quanto as infos dos produtos)
   - fazer readme
+  <!-- - fazer deploy -->
   - persistir no storage
   <!-- - inserir "vezinho" no product já escolhido -->
   - inserir checkbox on productdetails
@@ -45,7 +46,7 @@ Tasks - Usabilidade OBRIGATORIAS
 Tasks - Usabilidade OPCIONAIS
 
 <!-- - Pedidos devem aparecer para a cozinha em tempo real -->
-  - usar long Pooling ou WebSockets
+  <!-- - usar long Pooling ou WebSockets -->
   <!-- - Implementar uma situação para quando o usuário compra mais de um produto -->
 
 - Observações no Pedido
@@ -61,7 +62,7 @@ Tasks - Usabilidade OPCIONAIS
 
 <div align="center">
 
-  ## Luzia Bot
+  ## Fast Food Project
   
   <div align="center">
     <img width="700" height="400" src="src/assets/chatbotLuzia.gif">
@@ -70,7 +71,7 @@ Tasks - Usabilidade OPCIONAIS
   <br />
   
   <p align="center">
-    <a href="https://luzia-chatbot.vercel.app/"><strong>Browse the web demo version »</strong></a>
+    <a href="https://fast-food-project-one.vercel.app/"><strong>Browse the web demo version »</strong></a>
   </p>
 </div>
 

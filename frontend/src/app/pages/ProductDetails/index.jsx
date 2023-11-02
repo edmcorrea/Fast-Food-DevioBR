@@ -3,6 +3,7 @@ import { productsMock } from "../../services/products.mock"
 import { Link, useParams } from "react-router-dom";
 import Context from "../../context/Context";
 import './ProductDetails.scss'
+import { setSummaryListLocalStorage } from "../../services/getAndSetLocalStorage";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -27,6 +28,7 @@ function ProductDetails() {
 
     updatedSummaryList.push(foundProduct);
     setSummaryList(updatedSummaryList);
+    setSummaryListLocalStorage(updatedSummaryList);
   }
 
   const handleObservationsChange = (event) => {

@@ -5,6 +5,7 @@ import Payment from "../../components/Payment";
 import SummaryListComponent from "../../components/SummaryListComponent";
 import { requestPostCustomers } from "../../services/requests/request.customer";
 import './OrderDetails.scss';
+import { setSummaryListLocalStorage } from "../../services/getAndSetLocalStorage";
 
 const DEFAULT_DELAY = 3000;
 
@@ -26,6 +27,7 @@ function OrderDetails() {
 
   const handleSummaryList = () => {
     setSummaryList([]);
+    setSummaryListLocalStorage([]);
   };
 
   const handleSubmit = async () => {
@@ -43,7 +45,7 @@ function OrderDetails() {
     
     try {
       await requestPostCustomers('/customer', Data);
-      setSummaryList([]);
+      handleSummaryList();
 
       navigate("/");
 

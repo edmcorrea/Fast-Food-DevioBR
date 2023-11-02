@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Context from './Context';
+import { getSummaryListLocalStorage } from '../services/getAndSetLocalStorage';
 
 function Provider({ children }) {
   const [query, setQuery] = useState('');
   const [summaryList, setSummaryList] = useState([]);
   const [productsList, setProductsList] = useState([]);
   const [sucessNewCustomer, setSucessNewCustomer] = useState(false);
+
+  useEffect(() => {
+    setSummaryList(getSummaryListLocalStorage() || []);
+  }, []);
 
 
   const context = useMemo(() => ({

@@ -3,12 +3,14 @@ import Context from "../../context/Context";
 import { Link } from "react-router-dom";
 import SummaryListComponent from "../SummaryListComponent";
 import "./OrderSummary.scss";
+import { setSummaryListLocalStorage } from "../../services/getAndSetLocalStorage";
 
 function OrderSummary() {
   const { summaryList, setSummaryList } = useContext(Context);
 
   const removeAllSummaryList = () => {
     setSummaryList([]);
+    setSummaryListLocalStorage([]);
   };
 
   return (
