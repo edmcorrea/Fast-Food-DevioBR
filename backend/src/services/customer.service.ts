@@ -1,21 +1,51 @@
-import { ICustomers, IResponseCustomers } from '../interfaces';
-import CustomerModel from '../models/customer.model';
+import { Context, prismaContext } from '../models/context';
+import HttpException from '../utils/httpException';
 
 class CustomerService {
-  private customerModel = new CustomerModel();
+  context: Context;
 
-  getAllCustomers = async () => this.customerModel.getAllCustomers();
+  constructor(context: Context = prismaContext) {
+    this.context = context;
+  }
 
-  public async createCustomer(customer: ICustomers) {
-    return this.customerModel.createCustomer(customer);
+  getAllCustomers = async () => this.context.prisma.customer.findMany();
+
+  public async createCustomer(customer: any) {
+    try {
+      const customerCreated = await this.context.prisma.customer.create({
+        data: customer
+      });
+      return customerCreated
+      
+    } catch (error: any) {
+      if (error && error.meta.target[0]) {
+        throw new HttpException(409, `${error.meta.target[0]} already registered`);
+      }
+    }
   }
 
   public async updateCustomerStatus(customer: any, id: number) {
-    return this.customerModel.updateCustomerStatus(customer, id);
+    try {
+      return this.context.prisma.customer.update({
+        where: {
+          codCustomer: id,
+        },
+        data: customer
+      });
+            
+    } catch (error: any) {
+      if (error && error.meta.target[0]) {
+        throw new HttpException(409, `${error.meta.target[0]} already registered`);
+      }
+    }
   }
 
   public async deleteCustomerById(id: number) {
-    return this.customerModel.deleteCustomerById(id);
+    return this.context.prisma.customer.delete({
+      where: {
+        codCustomer: id,
+      },
+    })
   }
 }
 

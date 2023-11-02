@@ -5,6 +5,7 @@ const NomeSchema = Joi.string().min(1).required();
 const productSchema = Joi.object({
   name: Joi.string(),
   observation: Joi.string().allow(''),
+  additional: Joi.array().allow(''),
   quantity: Joi.number()
 });
 const productsSchema = Joi.array().items(productSchema).required();
