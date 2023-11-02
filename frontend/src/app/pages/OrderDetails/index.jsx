@@ -6,6 +6,8 @@ import SummaryListComponent from "../../components/SummaryListComponent";
 import { requestPostCustomers } from "../../services/requests/request.customer";
 import './OrderDetails.scss';
 import { setSummaryListLocalStorage } from "../../services/getAndSetLocalStorage";
+import { IoWalletOutline } from 'react-icons/io5';
+
 
 const DEFAULT_DELAY = 3000;
 
@@ -66,7 +68,7 @@ function OrderDetails() {
   return (
     <div className="orderDetails">
       <div className="orderDetails-divtitle">
-        <h3 className="orderDetails-title">Pagamento</h3>
+        <h3 className="orderDetails-title"> <IoWalletOutline/> Pagamento</h3>
       </div>
 
       <div className="orderDetails-container">

@@ -2,6 +2,10 @@ import { useContext, useEffect, useState } from 'react';
 import './Payment.scss'
 import { PropTypes } from "prop-types";
 import Context from '../../context/Context';
+import { BsCreditCard } from 'react-icons/bs';
+import { FaRegMoneyBillAlt } from 'react-icons/fa';
+
+
 
 function Payment({ paymentMethod, handleInputChange }) {
   const { summaryList } = useContext(Context);
@@ -18,14 +22,14 @@ function Payment({ paymentMethod, handleInputChange }) {
     setTotalPrice(summaryList.reduce((acc, product) => {
       acc += product.price*product.quantity;
       return acc;
-    }, 0))
-  },[]);
+    }, 0));
+  },[summaryList]);
   
   return (
     <div className="payment">
       <h2 className="payment-title">Selecione a forma de pagamento:</h2>
       <label className={`payment-methodPayment${paymentMethod === 'debit' ? "-selected" : ""}`}>
-        <h3>Débito</h3>
+        <h3> <BsCreditCard/> Débito</h3>
         <input
           type="radio"
           name="paymentMethod"
@@ -35,7 +39,7 @@ function Payment({ paymentMethod, handleInputChange }) {
         />
       </label>
       <label className={`payment-methodPayment${paymentMethod === 'credit' ? "-selected" : ""}`}>
-        Crédito
+        <h3><BsCreditCard/> Crédito</h3>
         <input
           type="radio"
           name="paymentMethod"
@@ -45,7 +49,7 @@ function Payment({ paymentMethod, handleInputChange }) {
         />
       </label>
       <label className={`payment-methodPayment${paymentMethod === 'money' ? "-selected" : ""}`}>
-        Dinheiro
+        <h3><FaRegMoneyBillAlt/> Dinheiro</h3>
         <input
           type="radio"
           name="paymentMethod"
@@ -70,7 +74,9 @@ function Payment({ paymentMethod, handleInputChange }) {
           </label>
           <div className="payment-prices-valueDelivered">
             <p className="payment-prices-valueDelivered-title">Troco</p>
-            <p className="payment-prices-valueDelivered-change">{valueDelivered == "" ? '0.00' : (valueDelivered-totalPrice).toFixed(2) }</p>
+            <p className="payment-prices-valueDelivered-change">{
+              valueDelivered <= totalPrice ? '0.00' : (valueDelivered-totalPrice).toFixed(2) }
+            </p>
           </div>
         </div>
       }

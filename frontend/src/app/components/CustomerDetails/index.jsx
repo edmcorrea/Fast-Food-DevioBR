@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { customerMock } from '../../services/customers.mock';
 import { PropTypes } from "prop-types";
+import { BiCheck } from 'react-icons/bi';
+import { FiX } from 'react-icons/fi';
 
 import { requestGetCustomers, requestPutCustomer, requestRemoveCustomer } from '../../services/requests/request.customer';
 import './CustomerDetails.scss'
@@ -20,7 +22,7 @@ function CustomerDetails({statusOrder, router}) {
   };
 
   useEffect(() => {
-    reqGetCustomers()
+    reqGetCustomers();
   }, []);
 
   const handleSubmit = async (id, action) => {
@@ -81,14 +83,14 @@ function CustomerDetails({statusOrder, router}) {
                   onClick={() => handleSubmit(customer.codCustomer, "remove")}
                   className='customerDetails-orders-order-btns-cancelar'
                 >
-                  X 
+                  <FiX />
                 </button>
                 {statusOrder === "Preparing" && (
                   <button
                   onClick={() => handleSubmit(customer.codCustomer, "update")}
                   className='customerDetails-orders-order-btns-completed'
                   >
-                    V 
+                    <BiCheck />
                   </button>
                 )}
               </div>
