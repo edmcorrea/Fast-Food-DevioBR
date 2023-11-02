@@ -69,7 +69,7 @@ function CustomerDetails({statusOrder, router}) {
                     <section key={idx} className='customerDetails-orders-order-products'>
                       <p className='customerDetails-orders-order-products-product'> <span>{`${order.quantity}x `}</span> {order.name}</p>
                       { order.observation && order.observation.length 
-                        && <p className='customerDetails-orders-order-products-observation'>{`Observações: ${order.observation}`}</p>
+                        && <p className='customerDetails-orders-order-products-observation'>Observações: <span>{order.observation}</span></p>
                       }
                     </section>
                   ))}

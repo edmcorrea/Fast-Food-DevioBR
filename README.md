@@ -5,15 +5,14 @@
   - tests
   - inserir checkbox on productdetails
   - background da pagina principal
-  - fivicon mudar
-  - Editar o pedido já solicitado (em OrderDetails / SummaryOrder)
-  - melhorar customerDetails css
+  - implement gif
+  - implement video
   - REMOVER CONSOLE.LOG E COMENTARIOS
 
 
 <div align="center">
 
-  ## Fast Food Project
+ # Fast Food Project
   
   <div align="center">
     <img width="700" height="400" src="src/assets/chatbotLuzia.gif">
@@ -22,7 +21,7 @@
   <br />
   
   <p align="center">
-    <a href="https://fast-food-project-one.vercel.app/"><strong>Browse the web demo version »</strong></a>
+    <a href="https://fast-food-project-one.vercel.app/"><strong>Navegue pela versão de demonstração na web »</strong></a>
   </p>
 </div>
 
@@ -34,9 +33,9 @@ Esta é a minha solução de projeto para um Fast Food com recursos interativos 
 ## Tecnologias Utilizadas
 ---
 
-- Frontend: **Vite + React.js**
+- Frontend: **Vite + React.js, JavaScript**
 - Backend: **Node.js, TypeScript**
-- Other Libraries: **React-Hooks, Node-Thermal-Printer, SASS, React-Icons, Prisma, Jest, React-Testing-Library (RTL).**
+- Outras Bibliotecas: **React-Hooks, Node-Thermal-Printer, SASS, React-Icons, Prisma, Jest, React-Testing-Library (RTL).**
 
 <br>
 
@@ -103,8 +102,8 @@ Após receber o desafio Full Stack, foi realizada uma leitura aprofundada dos re
 
 ### Para executar o projeto (Com Docker):
 
-1. Clonar este repositório: `git clone git@github.com:edmcorrea/Fast-Food-DevioBR.git`
-2. Navegue até o diretório do projeto: `cd Fast-Food-DevioBR/`
+1. Clonar este repositório: `git clone git@github.com:edmcorrea/Fast-Food-Project.git`
+2. Navegue até o diretório do projeto: `cd Fast-Food-Project/`
 3. Renomeie o `.env.example` do backend para `.env`
 4. Altere o `tcp://xxx.xxx.xxx.xxx` referente à rota de conexão do dispositivo da impressão térmica
 5. Na raiz do projeto, execute o comando `docker-compose up -d --build` ou `docker compose up -d --build`
@@ -116,11 +115,11 @@ Após receber o desafio Full Stack, foi realizada uma leitura aprofundada dos re
 
 <summary><strong>Para executar o projeto localmente (Sem Docker)</strong></summary>
 
-1. Clonar este repositório: `git clone git@github.com:edmcorrea/Fast-Food-DevioBR.git`
-2. Navegue até o diretório do projeto backend: `cd Fast-Food-DevioBR/` e `cd backend/`
+1. Clonar este repositório: `git clone git@github.com:edmcorrea/Fast-Food-Project.git`
+2. Navegue até o diretório do projeto backend: `cd Fast-Food-Project/` e `cd backend/`
 3. Renomeie o `.env.example` do backend para `.env`
 4. Altere o `tcp://xxx.xxx.xxx.xxx` no arquivo `.env,` referente à rota de conexão do dispositivo da impressão térmica
-5. Em outro terminal, navegue até o diretório do projeto frontend: `cd Fast-Food-DevioBR/` e `cd frontend/`
+5. Em outro terminal, navegue até o diretório do projeto frontend: `cd Fast-Food-Project/` e `cd frontend/`
 6. Instale as dependências necessárias usando `npm install`
 7. Inicie o aplicativo usando `npm run dev`
 8. Instale as dependências necessárias usando `npm install`
