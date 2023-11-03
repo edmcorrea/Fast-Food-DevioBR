@@ -1,22 +1,10 @@
 
-  <!-- - Refatorar OrderDetails -->
-  - Descomentar a Função do thermal Printer no arquivo: backend>app>controllers>customer.controller
-  <!-- - copiar o migration do prisma para o prisma do backend -->
-  - tests
-  <!-- - inserir checkbox on productdetails -->
-  - background da pagina principal
-  - implement gif
-  - implement video
-  - REMOVER CONSOLE.LOG E COMENTARIOS
-  <!-- - REMOVER customer.model.ts file -->
-
-
 <div align="center">
 
  # Fast Food Project
   
   <div align="center">
-    <img width="700" height="400" src="src/assets/chatbotLuzia.gif">
+    <img width="700" height="400" src="./frontend/src/assets/capa.png">
   </div>
   
   <br />
@@ -75,6 +63,8 @@ Após receber o desafio Full Stack, foi realizada uma leitura aprofundada dos re
 - `Adição e remoção de produtos`: O usuário pode adicionar/remover itens e acompanhar o resumo do pedido
 
 - `Selecionar vários produtos`: O usuário pode pedir mais de um produto em um mesmo pedido
+
+- `Inserir itens adicionais ao pedido`: O usuário pode inserir adicionais ao pedido escolhido
 
 - `Armazenamento no localStorage`: Os pedidos não são perdidos caso a página seja reinicializada automaticamente.
 

@@ -20,14 +20,10 @@ function CustomerDetails({statusOrder, router}) {
     const filteredByStatus = await customers.filter((customer) => (customer.status === statusOrder));
     setFilterCustomers(filteredByStatus);
   };
-
-  useEffect(() => {
-    reqGetCustomers();
-  }, []);
-
+  
   const handleSubmit = async (id, action) => {
     let Data = filterCustomers.find((customer) => customer.codCustomer == id);
-
+    
     Data.status = "Completed";
     try {
       if(action === "remove") {
@@ -36,14 +32,17 @@ function CustomerDetails({statusOrder, router}) {
       if (action === "update") {
         await requestPutCustomer(`/customer/${id}`, Data);
       }
-      window.location.reload();
-
+      
     } catch (error) {
       const { response: { data: { message } } } = error;
       console.log(message);
     }
   };
-
+  
+  useEffect(() => {
+    reqGetCustomers();
+  }, [handleSubmit]);
+  
   return (
     <div className='customerDetails'>
       <h2 className='customerDetails-title'>{statusOrder === "Preparing" ? "Preparando" : "Pronto"}

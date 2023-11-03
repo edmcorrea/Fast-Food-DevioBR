@@ -39,6 +39,7 @@ function OrderDetails() {
           name: item.name,
           observation: item.observation,
           quantity: item.quantity,
+          additional: item.additional,
         };
       }),
       customerName,

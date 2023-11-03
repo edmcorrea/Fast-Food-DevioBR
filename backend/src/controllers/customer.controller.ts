@@ -15,7 +15,7 @@ class CustomerController {
   createCustomer = async (req: Request, res: Response): Promise<void> => {
     
     const customerCreated = await this.customerService.createCustomer(req.body);
-    // this.thermalPrinter.thermalPrintExecute('customerCreated');
+    this.thermalPrinter.thermalPrintExecute(customerCreated);
     res.status(201).json(customerCreated);
   }
 

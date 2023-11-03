@@ -74,7 +74,7 @@ function Payment({ paymentMethod, handleInputChange }) {
           </label>
           <div className="payment-prices-valueDelivered">
             <p className="payment-prices-valueDelivered-title">Troco</p>
-            <p className="payment-prices-valueDelivered-change">{
+            <p className="payment-prices-valueDelivered-change">R$ {
               valueDelivered <= totalPrice ? '0.00' : (valueDelivered-totalPrice).toFixed(2) }
             </p>
           </div>

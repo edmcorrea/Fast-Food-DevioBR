@@ -30,7 +30,7 @@ function SummaryListComponent({view}) {
                   <p>{product.observation}</p>
                 </div>
               )}
-              {view === "summary" && product.additional && (
+              {view === "summary" && product.additional.length !=0 && (
                 <div className="summaryListComponent-productContainer-texts-obs">
                   <h6>Adicionais:</h6>
                   {product.additional.map((add, idx) => (<p key={idx}>{`${add}${product.additional.length-1 === idx ? "" : ","}`}</p>))}
@@ -38,19 +38,21 @@ function SummaryListComponent({view}) {
               )}
           </div>
 
-          <p className="summaryListComponent-productContainer-price">{`R$ ${product.price.toFixed(2)}`}</p>
+          <div className={`summaryListComponent-productContainer-${view}`}>
+            <p className="summaryListComponent-productContainer-price">{`R$ ${(product.price*product.quantity).toFixed(2)}`}</p>
 
-          {view === "summary" && (
-            <>
-              <button
-                type="button"
-                className="summaryListComponent-productContainer-btn"
-                onClick={()=> removeOneSummaryList(product.id)}
-              >
-                Remover Item
-              </button>
-            </>
-          )}
+            {view === "summary" && (
+              <>
+                <button
+                  type="button"
+                  className="summaryListComponent-productContainer-btn"
+                  onClick={()=> removeOneSummaryList(product.id)}
+                  >
+                  Remover Item
+                </button>
+              </>
+            )}
+          </div>
         </div>
       ))}
       <TotalPrice view="pedido"/>

@@ -12,7 +12,7 @@ class ThermalService {
     interface: interfaceValue,
   });
 
-  public async thermalPrintExecute(customer: string) {
+  public async thermalPrintExecute(customer: any) {
     this.printer.alignCenter();
     this.printer.printQR(customer);
     this.printer.println(customer);

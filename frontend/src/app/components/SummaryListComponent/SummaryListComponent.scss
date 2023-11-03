@@ -45,11 +45,18 @@
       }
     }
 
+    &-summary {
+      display: flex;
+      align-items: center;
+      width: 50%;
+      justify-content: space-between;
+    }
+    
     &-price {
       font-size: 18px;
       font-weight: 600;
     }
-
+    
     &-btn {
       padding: 10px 12px;
       font-size: 14px;
@@ -73,6 +80,11 @@
   &-productContainer {
     flex-direction: column;
     gap: 15px;
+
+    &-summary {
+      flex-direction: column;
+      gap: 15px;
+    }
   }
 }
 

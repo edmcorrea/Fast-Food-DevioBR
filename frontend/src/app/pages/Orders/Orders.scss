@@ -1,5 +1,7 @@
 .order {
   position: relative;
+  flex-direction: column;
+  display: flex;
 
   
   &-sucessCustomer {
