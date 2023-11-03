@@ -1,14 +1,14 @@
 
-  - Refatorar OrderDetails
+  <!-- - Refatorar OrderDetails -->
   - Descomentar a Função do thermal Printer no arquivo: backend>app>controllers>customer.controller
   <!-- - copiar o migration do prisma para o prisma do backend -->
   - tests
-  - inserir checkbox on productdetails
+  <!-- - inserir checkbox on productdetails -->
   - background da pagina principal
   - implement gif
   - implement video
   - REMOVER CONSOLE.LOG E COMENTARIOS
-  - REMOVER customer.model.ts file
+  <!-- - REMOVER customer.model.ts file -->
 
 
 <div align="center">

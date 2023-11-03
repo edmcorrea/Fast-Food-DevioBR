@@ -25,5 +25,3 @@ export function validateUpdateCustomer(req: Request, _res: Response, next: NextF
   }
   next();
 }
-
-// export default validateNewCustomer;

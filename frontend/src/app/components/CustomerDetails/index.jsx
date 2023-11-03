@@ -40,6 +40,7 @@ function CustomerDetails({statusOrder, router}) {
 
     } catch (error) {
       const { response: { data: { message } } } = error;
+      console.log(message);
     }
   };
 

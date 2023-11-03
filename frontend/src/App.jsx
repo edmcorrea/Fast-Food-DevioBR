@@ -7,7 +7,6 @@ import ProductDetails from './app/pages/ProductDetails';
 import OrderDetails from './app/pages/OrderDetails';
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
     <Routes>

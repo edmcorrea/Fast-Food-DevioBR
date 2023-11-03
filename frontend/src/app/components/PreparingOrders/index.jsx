@@ -1,6 +1,5 @@
 import { PropTypes } from "prop-types";
 import CustomerDetails from '../CustomerDetails';
-// import 't Orders.css'
 
 function PreparingOrders({router}) {
 

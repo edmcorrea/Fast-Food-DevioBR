@@ -1,4 +1,3 @@
-// import 't Orders.css'
 import { useContext } from "react";
 import Context from "../../context/Context";
 import { PropTypes } from "prop-types";

@@ -23,7 +23,6 @@ class CustomerController {
     const { id } = req.params;
 
     const statusUpdated = await this.customerService.updateCustomerStatus(req.body, Number(id));
-    console.log(statusUpdated);
     
     res.status(200).json(statusUpdated);
   }
