@@ -31,6 +31,12 @@ function SummaryListComponent({view}) {
                   <p>{product.observation}</p>
                 </div>
               )}
+              {view === "summary" && product.additional && (
+                <div className="summaryListComponent-productContainer-texts-obs">
+                  <h6>Adicionais:</h6>
+                  {product.additional.map((add, idx) => (<p key={idx}>{`${add}${product.additional.length-1 === idx ? "" : ","}`}</p>))}
+                </div>
+              )}
           </div>
 
           <p className="summaryListComponent-productContainer-price">{`R$ ${product.price.toFixed(2)}`}</p>

@@ -29,7 +29,6 @@ function CustomerDetails({statusOrder, router}) {
     let Data = filterCustomers.find((customer) => customer.codCustomer == id);
 
     Data.status = "Completed";
-    console.log(Data);
     try {
       if(action === "remove") {
         await requestRemoveCustomer(`/customer/${id}`);
@@ -41,10 +40,9 @@ function CustomerDetails({statusOrder, router}) {
 
     } catch (error) {
       const { response: { data: { message } } } = error;
-      console.log(message);
     }
   };
-  
+
   return (
     <div className='customerDetails'>
       <h2 className='customerDetails-title'>{statusOrder === "Preparing" ? "Preparando" : "Pronto"}
@@ -68,8 +66,23 @@ function CustomerDetails({statusOrder, router}) {
                   .map((order, idx) => (
                     <section key={idx} className='customerDetails-orders-order-products'>
                       <p className='customerDetails-orders-order-products-product'> <span>{`${order.quantity}x `}</span> {order.name}</p>
+
                       { order.observation && order.observation.length 
                         && <p className='customerDetails-orders-order-products-observation'>Observações: <span>{order.observation}</span></p>
+                      }
+
+                      { order.additional && order.additional.length != 0 && 
+                      <div className='customerDetails-orders-order-products-additional'>
+                        <h6>Adicionais:</h6>
+
+                        {order.additional.map((add, idx) => (
+                          <p
+                          key={add}
+                          className='customerDetails-orders-order-products-additional-text'
+                          >
+                            {`${add}${order.additional.length-1 === idx ? "" : ","}`}
+                          </p>))}
+                      </div>
                       }
                     </section>
                   ))}

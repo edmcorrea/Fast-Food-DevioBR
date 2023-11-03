@@ -39,7 +39,7 @@ function Products() {
               />
               <div className="products-btns-link-texts">
                 <h4>{product.name}</h4>
-                <p>{product.ingredientes[0]}</p>          
+                <p>{product.ingredientes[0]}</p>
               </div>
               <p className="products-btns-link-price">{`R$ ${product.price.toFixed(2)}`}</p>
               {summaryList.some((list) =>list.id == product.id) && <BiCheck className="products-btns-link-checked"/>}

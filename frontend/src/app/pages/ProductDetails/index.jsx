@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Context from "../../context/Context";
 import './ProductDetails.scss'
 import { setSummaryListLocalStorage } from "../../services/getAndSetLocalStorage";
-import InputProducts from "../../components/CheckboxProducts";
+import InputProducts from "../../components/InputProducts";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -23,15 +23,15 @@ function ProductDetails() {
   const addToSummaryList = (id) => {
     const updatedSummaryList = [...summaryList];
 
-    let foundProduct = productsMock.find((product) => product.id == id);
-    console.log(foundProduct);
+    const foundProduct = productsMock.find((product) => product.id == id);
 
-    foundProduct.price += selectedCheckboxes.length;
+    const newPrice = foundProduct.price + selectedCheckboxes.length;
+
     foundProduct.additional = selectedCheckboxes;
     foundProduct.observation = observation;
     foundProduct.quantity = quantity;
 
-    updatedSummaryList.push(foundProduct);
+    updatedSummaryList.push({...foundProduct, price: newPrice });
     setSummaryList(updatedSummaryList);
     setSummaryListLocalStorage(updatedSummaryList);
   }
@@ -73,12 +73,12 @@ function ProductDetails() {
                     className="productDetails-filtered-info-texts-ingredients"
                   >
                     {filtered.ingredientes.map((ingredient, idx) => (
-                      <div
+                      <p
                         key={idx}
                         className="productDetails-filtered-info-texts-ingredients-ingredient"
                       >
-                        <p>{`${ingredient}, `}</p>
-                      </div>
+                        {`${ingredient}${filtered.ingredientes.length-1 === idx ? "" : ','}`}
+                      </p>
                     ))}
                   </div>
                   <div className="productDetails-filtered-info-texts-ingredients-btns">
