@@ -93,12 +93,12 @@ Após receber o desafio Full Stack, foi realizada uma leitura aprofundada dos re
 
 ### Para executar o projeto (Com Docker):
 
-1. Clonar este repositório: `git clone git@github.com:edmcorrea/Fast-Food-Project.git`
-2. Navegue até o diretório do projeto: `cd Fast-Food-Project/`
-3. Renomeie o `.env.example` do backend para `.env`
-4. Altere o `tcp://xxx.xxx.xxx.xxx` referente à rota de conexão do dispositivo da impressão térmica
-5. Na raiz do projeto, execute o comando `docker-compose up -d --build` ou `docker compose up -d --build`
-6. O projeto estará sendo executado em `http://localhost:5173/`
+1. Clonar este repositório: `git clone git@github.com:edmcorrea/fast-food-project.git`
+2. Navegue até o diretório do projeto: `cd fast-food-project/`
+3. Dentro da pasta `backend`, renomeie o arquivo `.env.example` para `.env`
+3.1. OBSERVAÇÃO: Remoneie a variável `interface` dentro do arquivo .env para uma rota válida! Ele é responsável por fazer a conexão com a impressão térmica.
+4. Na raiz do projeto, execute o comando `docker-compose up -d` ou `docker compose up -d`
+5. O projeto estará sendo executado em `http://localhost:5173/`
 
 <details>
 
@@ -109,13 +109,13 @@ Após receber o desafio Full Stack, foi realizada uma leitura aprofundada dos re
 1. Clonar este repositório: `git clone git@github.com:edmcorrea/Fast-Food-Project.git`
 2. Navegue até o diretório do projeto backend: `cd Fast-Food-Project/` e `cd backend/`
 3. Renomeie o `.env.example` do backend para `.env`
-4. Altere o `tcp://xxx.xxx.xxx.xxx` no arquivo `.env,` referente à rota de conexão do dispositivo da impressão térmica
-5. Em outro terminal, navegue até o diretório do projeto frontend: `cd Fast-Food-Project/` e `cd frontend/`
-6. Instale as dependências necessárias usando `npm install`
-7. Inicie o aplicativo usando `npm run dev`
-8. Instale as dependências necessárias usando `npm install`
-9. Inicie o aplicativo usando `npm start`
-10. O projeto estará sendo executado em `http://localhost:5173/`
+3.1. OBSERVAÇÃO: Remoneie a variável `interface` dentro do arquivo .env para uma rota válida! Ele é responsável por fazer a conexão com a impressão térmica.
+4. Em outro terminal, navegue até o diretório do projeto frontend: `cd Fast-Food-Project/` e `cd frontend/`
+5. Instale as dependências necessárias usando `npm install`
+6. Inicie o aplicativo usando `npm run dev`
+7. Instale as dependências necessárias usando `npm install`
+8. Inicie o aplicativo usando `npm start`
+9. O projeto estará sendo executado em `http://localhost:5173/`
 
 <br>
 
