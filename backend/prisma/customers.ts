@@ -16,7 +16,7 @@ const customers = [
   },
   {
     customerName: "Bruna",
-    products: [{ name:"Hamburguer Novo", observation: "", additional:["bacon", "cheddar"], quantity: 1}],
+    products: [{ name:"Hamburguer Novo", observation: "sem picles", additional:["bacon", "cheddar"], quantity: 2}, { name:"X-Bacon", observation: "substituir alface por tomate", additional:["bacon"], quantity: 1}],
     status: "Completed"
   },
   {

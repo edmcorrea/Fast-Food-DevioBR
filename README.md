@@ -91,12 +91,14 @@ Após receber o desafio Full Stack, foi realizada uma leitura aprofundada dos re
 ## Como começar
 ---
 
+
 ### Configurando o Banco de Dados usando Docker (MySQL)
 
 1. Certifique-se de ter o Docker instalado na sua máquina. Se ainda não o tiver, você pode baixá-lo e instalá-lo a partir do [site oficial do Docker](https://www.docker.com/get-started).
 
 2. Crie do container Docker - MySQL através do comando: `docker run --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db -p 3306:3306 -d mysql:5.7`
 
+<br>
 
 ### Para executar o projeto localmente:
 
@@ -106,13 +108,14 @@ Após receber o desafio Full Stack, foi realizada uma leitura aprofundada dos re
 4. Dentro da pasta `backend`, **renomeie** o arquivo `.env.example` para `.env`
 5. OBSERVAÇÃO: Dentro de arquivo .env, **renomeie a variável** `interface` (substituindo 'tcp://xxx.xxx.xxx.xxx' pelo caminho onde a impressora térmica está instalada)! Ele é responsável por fazer a impressão térmica quando um novo pedido é criado.
 6. **Instale as dependências** necessárias usando `npm install`
-7. **Inicie a aplicação BackEnd** usando `npm start`
-8. **Construa e povoe** o banco de dados através do comando `npx prisma migrate dev` 
+7. **Construa e povoe** o banco de dados através do comando `npx prisma migrate dev`
+8. **Inicie a aplicação BackEnd** usando `npm start` 
 9. Em outro terminal, **navegue até o diretório** do projeto frontend: `cd fast-food-project/` e `cd frontend/`
 10. **Instale as dependências** necessárias usando `npm install`
 11. **Inicie a aplicação FrontEnd** usando `npm run dev`
 12. O projeto estará sendo executado em `http://localhost:5173/`
 
+<br>
 
 <details>
 
