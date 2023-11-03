@@ -91,31 +91,41 @@ Após receber o desafio Full Stack, foi realizada uma leitura aprofundada dos re
 ## Como começar
 ---
 
-### Para executar o projeto (Com Docker):
+### Configurando o Banco de Dados usando Docker (MySQL)
 
-1. Clonar este repositório: `git clone git@github.com:edmcorrea/fast-food-project.git`
-2. Navegue até o diretório do projeto: `cd fast-food-project/`
-3. Dentro da pasta `backend`, renomeie o arquivo `.env.example` para `.env`
-3.1. OBSERVAÇÃO: Remoneie a variável `interface` dentro do arquivo .env para uma rota válida! Ele é responsável por fazer a conexão com a impressão térmica.
-4. Na raiz do projeto, execute o comando `docker-compose up -d` ou `docker compose up -d`
-5. O projeto estará sendo executado em `http://localhost:5173/`
+1. Certifique-se de ter o Docker instalado na sua máquina. Se ainda não o tiver, você pode baixá-lo e instalá-lo a partir do [site oficial do Docker](https://www.docker.com/get-started).
+
+2. Crie do container Docker - MySQL através do comando: `docker run --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db -p 3306:3306 -d mysql:5.7`
+
+
+### Para executar o projeto localmente:
+
+1. **Execute o passo anterior** `Configurando o Banco de Dados usando Docker (MySQL)`
+2. **Clone** este repositório: `git clone git@github.com:edmcorrea/fast-food-project.git`
+3. **Navegue até o diretório** do projeto backend: `cd fast-food-project/` e `cd backend/`
+4. Dentro da pasta `backend`, **renomeie** o arquivo `.env.example` para `.env`
+5. OBSERVAÇÃO: Dentro de arquivo .env, **renomeie a variável** `interface` (substituindo 'tcp://xxx.xxx.xxx.xxx' pelo caminho onde a impressora térmica está instalada)! Ele é responsável por fazer a impressão térmica quando um novo pedido é criado.
+6. **Instale as dependências** necessárias usando `npm install`
+7. **Inicie a aplicação BackEnd** usando `npm start`
+8. **Construa e povoe** o banco de dados através do comando `npx prisma migrate dev` 
+9. Em outro terminal, **navegue até o diretório** do projeto frontend: `cd fast-food-project/` e `cd frontend/`
+10. **Instale as dependências** necessárias usando `npm install`
+11. **Inicie a aplicação FrontEnd** usando `npm run dev`
+12. O projeto estará sendo executado em `http://localhost:5173/`
+
 
 <details>
 
 <br>
 
-<summary><strong>Para executar o projeto localmente (Sem Docker)</strong></summary>
+<summary><strong>Para executar o projeto (Com Docker)</strong></summary>
 
-1. Clonar este repositório: `git clone git@github.com:edmcorrea/Fast-Food-Project.git`
-2. Navegue até o diretório do projeto backend: `cd Fast-Food-Project/` e `cd backend/`
-3. Renomeie o `.env.example` do backend para `.env`
-3.1. OBSERVAÇÃO: Remoneie a variável `interface` dentro do arquivo .env para uma rota válida! Ele é responsável por fazer a conexão com a impressão térmica.
-4. Em outro terminal, navegue até o diretório do projeto frontend: `cd Fast-Food-Project/` e `cd frontend/`
-5. Instale as dependências necessárias usando `npm install`
-6. Inicie o aplicativo usando `npm run dev`
-7. Instale as dependências necessárias usando `npm install`
-8. Inicie o aplicativo usando `npm start`
-9. O projeto estará sendo executado em `http://localhost:5173/`
+1. **Clone** este repositório: `git clone git@github.com:edmcorrea/fast-food-project.git`
+2. **Navegue até o diretório** do projeto: `cd fast-food-project/`
+3. Dentro da pasta `backend`, **renomeie** o arquivo `.env.example` para `.env`
+4. OBSERVAÇÃO: Dentro de arquivo .env, **renomeie a variável** `interface` (substituindo 'tcp://xxx.xxx.xxx.xxx' pelo caminho onde a impressora térmica está instalada)! Ele é responsável por fazer a impressão térmica quando um novo pedido é criado.
+5. Na raiz do projeto, **execute o comando** `docker-compose up -d` ou `docker compose up -d`
+6. O projeto estará sendo executado em `http://localhost:5173/`
 
 <br>
 
