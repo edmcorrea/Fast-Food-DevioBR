@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { productsMock } from "../../services/products.mock"
 import Context from "../../context/Context";
-import { Link } from "react-router-dom";
 import { BiDownArrowAlt, BiUpArrowAlt, BiCheck } from 'react-icons/bi';
 import "./Products.scss";
 
 function Products() {
-  const { productsList, setProductsList, summaryList } = useContext(Context);
+  const { productsList, setProductsList, summaryList, handleSelect } = useContext(Context);
   const [showAllProducts, setShowAllProducts] = useState(false);
 
   useEffect(() => {
@@ -21,17 +20,19 @@ function Products() {
 
   return (
     <div className="products">
+
       <section className="products-texts">
         <h3>Produtos</h3>
         <p>Selecione um produto para adicionar ao seu pedido</p>
       </section>
+
       <section className="products-btns">
         <div className="products-btns-links">
           {displayedProducts.map((product) => (
-            <Link
+            <button
               className={`products-btns-link${summaryList.some((list) =>list.id == product.id) ? '-selected' : ''}`}
               key={product.id}
-              to={`/product/${product.id}`}
+              onClick={() => handleSelect(product.id)}
             >
               <img src={product.img}
                 className="products-btns-link-img"
@@ -43,17 +44,16 @@ function Products() {
               </div>
               <p className="products-btns-link-price">{`R$ ${product.price.toFixed(2)}`}</p>
               {summaryList.some((list) =>list.id == product.id) && <BiCheck className="products-btns-link-checked"/>}
-            </Link>
+            </button>
           ))}
         </div>
-        {!showAllProducts && (
+        {!showAllProducts ? (
           <button onClick={toggleShowAllProducts} className="products-btns-showMore">
             Ver mais <BiDownArrowAlt className="products-arrows"/>
           </button>
-        )}
-        {showAllProducts && (
+          ) : (
           <button onClick={toggleShowAllProducts} className="products-btns-showMore">
-            Ver menos <BiUpArrowAlt className="products-arrows"/>
+          Ver menos <BiUpArrowAlt className="products-arrows"/>
           </button>
         )}
       </section>

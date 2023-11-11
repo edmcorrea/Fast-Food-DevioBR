@@ -1,15 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { productsMock } from "../../services/products.mock"
-import { Link, useParams } from "react-router-dom";
+import { PropTypes } from "prop-types";
 import Context from "../../context/Context";
 import './ProductDetails.scss'
 import { setSummaryListLocalStorage } from "../../services/getAndSetLocalStorage";
-import InputProducts from "../../components/InputProducts";
+import InputProducts from "../InputProducts";
 
-function ProductDetails() {
-  const { id } = useParams();
+function ProductDetails({id, handleSelect}) {
+
   const { summaryList, setSummaryList } = useContext(Context);
-
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   const [observation, setObservation] = useState("");
@@ -37,7 +36,6 @@ function ProductDetails() {
   }
 
   
-
   const handleObservationsChange = (event) => {
     setObservation(event.target.value);
   };
@@ -112,23 +110,23 @@ function ProductDetails() {
           />
 
           <div className="productDetails-btns">
-            <Link to="/">
-              <button
-                type="button"
-                className="productDetails-btns-back"
-              >
-                Voltar
-              </button>
-            </Link>
-            <Link to="/">
-              <button
-                type="button"
-                onClick={() => addToSummaryList(id)}
-                className="productDetails-btns-add"
-              >
-                Continuar Adicionando
-              </button>
-            </Link>
+            <button
+              type="button"
+              className="productDetails-btns-back"
+              onClick={() => handleSelect(0)}
+            >
+              Voltar
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                addToSummaryList(id)
+                handleSelect(0)
+              }}
+              className="productDetails-btns-add"
+            >
+              Continuar Adicionando
+            </button>
           </div>
         </div>
       }
@@ -137,3 +135,8 @@ function ProductDetails() {
 }
 
 export default ProductDetails
+
+ProductDetails.propTypes = {
+  id: PropTypes.number,
+  handleSelect: PropTypes.func,
+};
