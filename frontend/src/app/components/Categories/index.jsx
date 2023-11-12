@@ -1,7 +1,11 @@
 import './Categories.scss'
+import { useContext } from "react";
+import Context from "../../context/Context";
 import { categoriesMock } from "../../services/categories.mock"
 
 function Categories() {
+  const { categorie, setCategorie } = useContext(Context);
+
 
   return (
     <div className='categories'>
@@ -11,7 +15,11 @@ function Categories() {
       </section>
       <section className='categories-btns'>
       {categoriesMock.map((element) => (
-        <button key={element.name} className='categories-btns-btn'>
+        <button
+          key={element.name}
+          className='categories-btns-btn'
+          onClick={() => setCategorie(element.name)}
+        >
           <img src={element.img}
             className="categories-img"
             alt={element.name}

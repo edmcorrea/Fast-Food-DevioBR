@@ -5,12 +5,13 @@ import { BiDownArrowAlt, BiUpArrowAlt, BiCheck } from 'react-icons/bi';
 import "./Products.scss";
 
 function Products() {
-  const { productsList, setProductsList, summaryList, handleSelect } = useContext(Context);
+  const { categorie, productsList, setProductsList, summaryList, handleSelect } = useContext(Context);
   const [showAllProducts, setShowAllProducts] = useState(false);
 
   useEffect(() => {
-    setProductsList(productsMock);
-  }, []);
+    const productFilteredByCategorie = productsMock.filter((product) => product.type === categorie);
+    setProductsList(productFilteredByCategorie);
+  }, [categorie]);
 
   const displayedProducts = showAllProducts ? productsList : productsList.slice(0, 6);
 

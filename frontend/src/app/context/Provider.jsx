@@ -9,6 +9,7 @@ function Provider({ children }) {
   const [productsList, setProductsList] = useState([]);
   const [sucessNewCustomer, setSucessNewCustomer] = useState(false);
   const [productDetailsId, setProductDetailsId] = useState(0);
+  const [categorie, setCategorie] = useState("Burguers");
 
   useEffect(() => {
     setSummaryList(getSummaryListLocalStorage() || []);
@@ -35,6 +36,8 @@ function Provider({ children }) {
     setSucessNewCustomer,
     productDetailsId,
     setProductDetailsId,
+    categorie,
+    setCategorie,
     handleSelect,
   }), [
     query,
@@ -42,6 +45,7 @@ function Provider({ children }) {
     productsList,
     sucessNewCustomer,
     productDetailsId,
+    categorie,
   ]);
 
   return <Context.Provider value={ context }>{children}</Context.Provider>;
