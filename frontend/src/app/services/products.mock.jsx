@@ -1,12 +1,19 @@
 const imageBurguer = "https://swiftbr.vteximg.com.br/arquivos/subcategoria-hamburguer-snacks.png?v=637837316253030000";
 
+const imageFries = "https://files.passeidireto.com/fd43e5fc-a712-4551-aea4-282b1ef2cc79/fd43e5fc-a712-4551-aea4-282b1ef2cc79.png";
+
+const imageDrinks = "https://res.cloudinary.com/piramides/image/upload/c_fill,h_564,w_395/v1/products/846-coca-cola-2l-6un.20230925125505.png?_a=AAAOGGX";
+
+const imageDessert = "https://www.superfrut.com.br/paginas/imagem/4d732-sorvete.png/450/400/auto";
+
 export const productsMock = [
   {
     id: 1,
     img: imageBurguer,
     name: "Chicken Burguer",
     price: 10.50,
-    ingredientes: ["Peito de frango 180g", "Malonese da casa", "Mussarela", "Cebola roxa", "Tomate", "alface", "picles"]
+    ingredientes: ["Peito de frango 180g", "Malonese da casa", "Mussarela", "Cebola roxa", "Tomate", "alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 2,
@@ -14,6 +21,7 @@ export const productsMock = [
     name: "Smash da Casa",
     price: 22.90,
     ingredientes: ["2x hamburgues 180g", "Pão/Amanteigado", "Bacon", "Malonese da casa", "Mussarela", "Ovo", "Cebola roxa", "Tomate", "Altace americana"],
+    type: "Burguers",
   },
   {
     id: 3,
@@ -21,20 +29,23 @@ export const productsMock = [
     name: "X-Monster",
     price: 25.50,
     ingredientes: ["2x carnes artesanais 180g", "Pão Amanteigado", "Maionese da casa", "2 Mussarelas", "Bacon", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 4,
     img: imageBurguer,
     name: "X-Bacon Especial",
     price: 19.50,
-    ingredientes: ["2x hamburgues 180g", "Bacon", "Pão/Amanteigado", "Bacon", "Malonese da casa", "Mussarela", "Ovo", "Cebola roxa", "Tomate", "Altace americana"]
+    ingredientes: ["2x hamburgues 180g", "Bacon", "Pão/Amanteigado", "Bacon", "Malonese da casa", "Mussarela", "Ovo", "Cebola roxa", "Tomate", "Altace americana"],
+    type: "Burguers",
   },
   {
     id: 5,
     img: imageBurguer,
     name: "Cachorro Quente",
     price: 9.90,
-    ingredientes: ["2x salsichas", "Presunto", "Tomate", "Alface", "picles"]
+    ingredientes: ["2x salsichas", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 6,
@@ -42,6 +53,7 @@ export const productsMock = [
     name: "X-Franquito",
     price: 11.90,
     ingredientes: ["2x peito de frango 180g", "Pão Amanteigado", "Maionese da casa", "2 Mussarelas", "Bacon", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 7,
@@ -49,6 +61,7 @@ export const productsMock = [
     name: "Essencial Burguer",
     price: 14.90,
     ingredientes: ["2x carnes artesanais 180g", "Pão Amanteigado", "Maionese da casa", "2 Mussarelas", "Bacon", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 8,
@@ -56,6 +69,7 @@ export const productsMock = [
     name: "Sensação-Burguer",
     price: 17.90,
     ingredientes: ["2x carnes artesanais 180g", "Pão Amanteigado", "Maionese da casa", "2 Mussarelas", "Bacon", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 9,
@@ -63,6 +77,7 @@ export const productsMock = [
     name: "Calabresa Burguer",
     price: 18.90,
     ingredientes: ["carnes artesanais 180g", "Calabresa", "Pão Amanteigado", "Maionese da casa", "2 Mussarelas", "Bacon", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 10,
@@ -70,6 +85,7 @@ export const productsMock = [
     name: "Duplo-Cheddar",
     price: 12.90,
     ingredientes: ["2x hamburgues 180g", "Pão Amanteigado", "Maionese da casa", "2 Mussarelas", "Bacon", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 11,
@@ -77,6 +93,7 @@ export const productsMock = [
     name: "X Egg",
     price: 11.90,
     ingredientes: ["3x Eggs ", "Pão Amanteigado", "Maionese da casa", "2 Mussarelas", "Bacon", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
   },
   {
     id: 12,
@@ -84,6 +101,79 @@ export const productsMock = [
     name: "Big Mike",
     price: 19.90,
     ingredientes: ["Hamburgues 180g", "Pão Amanteigado", "Maionese da casa", "2 Mussarelas", "Bacon", "Presunto", "Tomate", "Alface", "picles"],
+    type: "Burguers",
+  },
+  {
+    id: 13,
+    img: imageFries,
+    name: "Batata Frita Pequena",
+    price: 4.90,
+    ingredientes: ["Batata Frita Pequena 50g"],
+    type: "Acompanhamentos",
+  },
+  {
+    id: 14,
+    img: imageFries,
+    name: "Batata Frita Média",
+    price: 5.90,
+    ingredientes: ["Batata Frita Pequena 100g"],
+    type: "Acompanhamentos",
+  },
+  {
+    id: 15,
+    img: imageFries,
+    name: "Batata Frita Grande",
+    price: 6.90,
+    ingredientes: ["Batata Frita Pequena 150g"],
+    type: "Acompanhamentos",
+  },
+  {
+    id: 16,
+    img: imageDrinks,
+    name: "Refrigerante Pepsi Lata",
+    price: 4.90,
+    ingredientes: ["Refrigerante Pepsi Lata 350ml"],
+    type: "Bebidas",
+  },
+  {
+    id: 17,
+    img: imageDrinks,
+    name: "Refrigerante Fanta Lata",
+    price: 4.90,
+    ingredientes: ["Refrigerante Fanta Lata 350ml"],
+    type: "Bebidas",
+  },
+  {
+    id: 18,
+    img: imageDrinks,
+    name: "Refrigerante Pepsi 1L",
+    price: 7.90,
+    ingredientes: ["Refrigerante Pepsi 1L"],
+    type: "Bebidas",
+  },
+  {
+    id: 19,
+    img: imageDrinks,
+    name: "Refrigerante Fanta 1L",
+    price: 7.90,
+    ingredientes: ["Refrigerante Fanta 1L"],
+    type: "Bebidas",
+  },
+  {
+    id: 20,
+    img: imageDessert,
+    name: "Sorvete",
+    price: 7.90,
+    ingredientes: ["3 bolas de sorvete"],
+    type: "Sobremesas",
+  },
+  {
+    id: 21,
+    img: imageDessert,
+    name: "Nuggets",
+    price: 11.90,
+    ingredientes: ["nuggets 150g"],
+    type: "Sobremesas",
   },
 ];
 

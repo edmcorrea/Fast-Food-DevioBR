@@ -1,7 +1,7 @@
 export const categoriesMock = [
   {
     img: "https://swiftbr.vteximg.com.br/arquivos/subcategoria-hamburguer-snacks.png?v=637837316253030000",
-    name: "Combos"
+    name: "Burguers"
   },
   {
     img: "https://files.passeidireto.com/fd43e5fc-a712-4551-aea4-282b1ef2cc79/fd43e5fc-a712-4551-aea4-282b1ef2cc79.png",
