@@ -17,7 +17,7 @@ function Categories() {
       {categoriesMock.map((element) => (
         <button
           key={element.name}
-          className='categories-btns-btn'
+          className={`categories-btns-btn${categorie == element.name ? '-selected' : ''}`}
           onClick={() => setCategorie(element.name)}
         >
           <img src={element.img}

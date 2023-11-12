@@ -46,6 +46,7 @@
 
     &-link {
       @include padraoProduct();
+      cursor: pointer;
       position: relative;
       
       h4 {

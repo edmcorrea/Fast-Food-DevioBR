@@ -1,3 +1,18 @@
+@mixin padraoCategorie {
+  background-color: white;
+  box-shadow: 2px 2px 10px 1px rgb(240, 240, 240);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  padding: 10px;
+  white-space: nowrap;
+}
+
 .categories {
   margin: 20px 5%;
   display: flex;
@@ -23,17 +38,13 @@
     overflow-x: auto;
 
     &-btn {
-      background-color: white;
-      box-shadow: 2px 2px 10px 1px rgb(240, 240, 240);
-      border: none;
-      border-radius: 5px;
-      font-size: 14px;
-      font-weight: 600;
-      width: auto;
-      max-width: 100%;
-      text-align: center;
-      padding: 10px;
-      white-space: nowrap;
+      @include padraoCategorie();
+
+      &-selected {
+        @include padraoCategorie();
+        border-bottom: 2px solid #ff6a28;
+        border-radius: 3px;
+      }
     }
   }
   &-img {
