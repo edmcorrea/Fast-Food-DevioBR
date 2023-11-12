@@ -9,6 +9,9 @@
 }
 
 .containerProductDetails {
+}
+
+.productDetails {
   position: absolute;
   z-index: 1;
   left: 50%;
@@ -16,10 +19,6 @@
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.productDetails {
   background-color: white;
   border-radius: 6px;
   padding: 40px;
@@ -167,8 +166,10 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 868px) {
     padding: 10px 3%;
+    width: 80%;
+
 
     &-filtered {
       flex-direction: column;
@@ -179,6 +180,10 @@
         gap: 10px;
         flex-direction: row;
       }
+    }
+
+    &-btns {
+      flex-direction: column;
     }
   }
 }
