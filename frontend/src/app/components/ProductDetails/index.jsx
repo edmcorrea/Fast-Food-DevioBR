@@ -8,7 +8,7 @@ import InputProducts from "../InputProducts";
 
 function ProductDetails({id, handleSelect}) {
 
-  const { summaryList, setSummaryList } = useContext(Context);
+  const { categorie, summaryList, setSummaryList } = useContext(Context);
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   const [observation, setObservation] = useState("");
@@ -102,12 +102,14 @@ function ProductDetails({id, handleSelect}) {
             </div>
           ))}
           
-          <InputProducts
-            selectedCheckboxes={selectedCheckboxes}
-            setSelectedCheckboxes={setSelectedCheckboxes}
-            observation={observation}
-            handleObservationsChange={handleObservationsChange}
-          />
+          {categorie == 'Burguers' && 
+            <InputProducts
+              selectedCheckboxes={selectedCheckboxes}
+              setSelectedCheckboxes={setSelectedCheckboxes}
+              observation={observation}
+              handleObservationsChange={handleObservationsChange}
+            />
+          }
 
           <div className="productDetails-btns">
             <button
