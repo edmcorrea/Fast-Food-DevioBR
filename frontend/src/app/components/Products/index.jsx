@@ -48,15 +48,18 @@ function Products() {
             </button>
           ))}
         </div>
-        {!showAllProducts ? (
-          <button onClick={toggleShowAllProducts} className="products-btns-showMore">
-            Ver mais <BiDownArrowAlt className="products-arrows"/>
-          </button>
-          ) : (
-          <button onClick={toggleShowAllProducts} className="products-btns-showMore">
-          Ver menos <BiUpArrowAlt className="products-arrows"/>
-          </button>
-        )}
+        
+        { productsList.length > 6 &&
+          (!showAllProducts ? (
+            <button onClick={toggleShowAllProducts} className="products-btns-showMore">
+              Ver mais <BiDownArrowAlt className="products-arrows"/>
+            </button>
+            ) : (
+            <button onClick={toggleShowAllProducts} className="products-btns-showMore">
+            Ver menos <BiUpArrowAlt className="products-arrows"/>
+            </button>
+          ))
+        }
       </section>
     </div>
   )
